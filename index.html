@@ -9,17 +9,17 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:       #07090d;
-  --bg2:      #0b1018;
-  --surface:  #101820;
-  --surface2: #16222e;
-  --border:   rgba(255,255,255,0.07);
-  --border2:  rgba(255,255,255,0.12);
-  --accent:   #e8732a;
-  --accent2:  #f5a642;
-  --text:     #dce6f0;
-  --muted:    #536070;
-  --dim:      #8a9daf;
+  --bg:      #07090d;
+  --bg2:     #0b1018;
+  --surface: #101820;
+  --surf2:   #16222e;
+  --border:  rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --accent:  #e8732a;
+  --accent2: #f5a642;
+  --text:    #dce6f0;
+  --muted:   #536070;
+  --dim:     #8a9daf;
 }
 
 html { scroll-behavior: smooth; }
@@ -40,7 +40,7 @@ body::before {
   background-size: 300px; opacity: 0.5;
 }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
@@ -69,7 +69,7 @@ nav {
 }
 .nav-cta:hover { background: var(--accent); color: var(--bg); }
 
-/* ── HERO ── */
+/* HERO */
 #hero {
   min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center;
@@ -129,7 +129,7 @@ h1 em { font-style: normal; color: var(--accent); }
 }
 .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ── SHARED ── */
+/* SHARED */
 .section-wrap { max-width: 960px; margin: 0 auto; padding: 6rem 3.5rem; }
 .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 3.5rem; }
 .section-num { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--accent); letter-spacing: 0.1em; }
@@ -139,27 +139,34 @@ h1 em { font-style: normal; color: var(--accent); }
 }
 .section-line { flex: 1; height: 1px; background: var(--border); }
 
-/* ── ABOUT ── */
+/* ABOUT */
 #about { background: var(--bg2); }
-.about-grid { display: grid; grid-template-columns: 220px 1fr 1fr; gap: 3.5rem; align-items: start; }
-.about-headshot-wrap {
-  position: relative;
+.about-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+.about-headshot-wrap { position: relative; }
+.about-headshot-wrap::after {
+  content: '';
+  position: absolute; bottom: -7px; right: -7px;
+  width: 100%; height: 100%;
+  border: 1px solid var(--accent);
+  pointer-events: none;
 }
 .about-headshot {
-  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top;
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top;
   display: block;
-  filter: grayscale(20%);
+  position: relative;
+  z-index: 1;
+  filter: grayscale(15%);
   transition: filter 0.3s;
 }
 .about-headshot:hover { filter: grayscale(0%); }
-.about-headshot-wrap::after {
-  content: '';
-  position: absolute; bottom: -6px; right: -6px;
-  width: 100%; height: 100%;
-  border: 1px solid var(--accent);
-  pointer-events: none; z-index: 0;
-}
-.about-headshot { position: relative; z-index: 1; }
 .about-text p {
   color: var(--dim); font-size: 0.97rem; font-weight: 300;
   margin-bottom: 1.2rem; line-height: 1.85;
@@ -168,27 +175,27 @@ h1 em { font-style: normal; color: var(--accent); }
 .about-cards { display: flex; flex-direction: column; gap: 1rem; }
 .about-card {
   background: var(--surface); border: 1px solid var(--border);
-  padding: 1.3rem 1.5rem;
-  display: flex; align-items: center; gap: 1.2rem;
+  padding: 1.2rem 1.4rem;
+  display: flex; align-items: center; gap: 1.1rem;
   transition: border-color 0.2s;
 }
 .about-card:hover { border-color: var(--accent); }
 .about-card-icon {
-  width: 40px; height: 40px; background: rgba(232,115,42,0.1);
+  width: 38px; height: 38px; background: rgba(232,115,42,0.1);
   border: 1px solid rgba(232,115,42,0.2);
   display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; font-size: 1rem;
+  flex-shrink: 0; font-size: 0.95rem;
 }
 .about-card-val {
-  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.2rem; line-height: 1;
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; line-height: 1;
 }
 .about-card-val span { color: var(--accent); }
 .about-card-desc {
-  font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em;
+  font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--muted); margin-top: 0.25rem;
 }
 
-/* ── EXPERIENCE ── */
+/* EXPERIENCE */
 #experience { background: var(--bg); }
 .exp-list { display: flex; flex-direction: column; }
 .exp-item {
@@ -224,7 +231,7 @@ h1 em { font-style: normal; color: var(--accent); }
 }
 .tag:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ── PROJECTS ── */
+/* PROJECTS */
 #projects { background: var(--bg2); }
 .projects-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
@@ -265,7 +272,7 @@ h1 em { font-style: normal; color: var(--accent); }
   flex-shrink: 0; margin-top: 0.22rem;
 }
 
-/* ── SKILLS ── */
+/* SKILLS */
 #skills { background: var(--bg); }
 .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 4rem; }
 .skill-group-title {
@@ -279,11 +286,11 @@ h1 em { font-style: normal; color: var(--accent); }
   color: var(--dim); border: 1px solid var(--border);
   padding: 0.45rem 0.85rem; transition: all 0.2s; cursor: default;
 }
-.skill-pill:hover { background: var(--surface2); color: var(--text); border-color: var(--border2); }
+.skill-pill:hover { background: var(--surf2); color: var(--text); border-color: var(--border2); }
 .skill-pill.hl { border-color: rgba(232,115,42,0.3); color: var(--accent); }
 .skill-pill.hl:hover { background: rgba(232,115,42,0.1); }
 
-/* ── CONTACT ── */
+/* CONTACT */
 #contact { background: var(--surface); }
 .contact-inner {
   display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
@@ -298,7 +305,7 @@ h1 em { font-style: normal; color: var(--accent); }
 .contact-right { display: flex; flex-direction: column; gap: 1rem; }
 .contact-link {
   display: flex; align-items: center; gap: 1.2rem;
-  background: var(--surface2); border: 1px solid var(--border);
+  background: var(--surf2); border: 1px solid var(--border);
   padding: 1.1rem 1.4rem; text-decoration: none;
   transition: border-color 0.2s, background 0.2s;
 }
@@ -316,7 +323,7 @@ h1 em { font-style: normal; color: var(--accent); }
 }
 .contact-link-val { font-size: 0.88rem; color: var(--text); }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
   background: var(--bg); border-top: 1px solid var(--border);
   padding: 2rem 3.5rem;
@@ -332,7 +339,7 @@ footer {
 }
 .footer-right span { color: var(--accent); }
 
-/* ── ANIMATIONS ── */
+/* ANIMATIONS */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -343,15 +350,15 @@ footer {
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media (max-width: 860px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   #hero { padding: 7rem 1.5rem 4rem; }
   .section-wrap { padding: 4rem 1.5rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .about-headshot-wrap { max-width: 200px; }
-  .contact-inner,
+  .about-headshot-wrap { max-width: 180px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
   .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
   .projects-grid { grid-template-columns: 1fr; }
   .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
@@ -396,20 +403,23 @@ footer {
       <div class="section-line"></div>
     </div>
     <div class="about-grid">
+
       <div class="about-headshot-wrap reveal">
-        <img class="about-headshot" src="images/headshot.jpeg" alt="Liam Murphy"/>
+        <img class="about-headshot" src="images/headshot.jpeg" alt="Liam Murphy headshot"/>
       </div>
+
       <div class="about-text reveal">
         <p>I'm a <strong>junior Aerospace Engineering student at CU Boulder</strong> with a hands-on focus across aerodynamics, composites manufacturing, CAD, and systems validation. I care about building things that work under real conditions — not just in simulation.</p>
         <p>My work spans Formula SAE aerodynamic development, smallsat system design, commercial client deliverables, and personal engineering projects. I've led and contributed to multidisciplinary teams ranging from university competitions to client-facing product work.</p>
         <p>I'm strongest at the intersection of <strong>analytical design and physical manufacturing</strong> — taking a concept from CFD or FEA to a finished, tested part.</p>
       </div>
+
       <div class="about-cards reveal">
         <div class="about-card">
           <div class="about-card-icon">🎓</div>
           <div>
             <div class="about-card-val">May <span>2027</span></div>
-            <div class="about-card-desc">Expected Graduation · Aerospace Engineering</div>
+            <div class="about-card-desc">Expected Graduation · Aerospace Eng.</div>
           </div>
         </div>
         <div class="about-card">
@@ -423,7 +433,7 @@ footer {
           <div class="about-card-icon">🏎</div>
           <div>
             <div class="about-card-val">CU <span>FSAE</span></div>
-            <div class="about-card-desc">Aerodynamicist & Composites Manufacturer</div>
+            <div class="about-card-desc">Aerodynamicist & Composites Mfg.</div>
           </div>
         </div>
         <div class="about-card">
@@ -434,6 +444,7 @@ footer {
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -681,11 +692,11 @@ footer {
         <p class="contact-body">I'm looking for hands-on roles in aerospace, motorsport, or mechanical engineering — anywhere the work involves real design, analysis, and manufacturing. Let's talk.</p>
       </div>
       <div class="contact-right reveal">
-        <a class="contact-link" href="/cdn-cgi/l/email-protection#b3dec6c1dfda8382c2c6d6d1dcf3d4ded2dadf9dd0dcde">
+        <a class="contact-link" href="mailto:murli01quebo@gmail.com">
           <div class="contact-link-icon">@</div>
           <div>
             <div class="contact-link-label">Email</div>
-            <div class="contact-link-val"><span class="__cf_email__" data-cfemail="85e8f0f7e9ecb5b4f4f0e0e7eac5e2e8e4ece9abe6eae8">[email&#160;protected]</span></div>
+            <div class="contact-link-val">murli01quebo@gmail.com</div>
           </div>
         </a>
         <a class="contact-link" href="tel:9105990023">
@@ -713,7 +724,7 @@ footer {
   <div class="footer-right">Aerospace Engineering · CU Boulder · <span>May 2027</span></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const reveals = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
@@ -727,4 +738,13 @@ reveals.forEach(el => obs.observe(el));
 
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', (
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : '';
+  });
+});
+</script>
+</body>
+</html>
