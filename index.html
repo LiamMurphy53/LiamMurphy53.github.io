@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liam Murphy | Aerospace Portfolio</title>
+  <meta name="description" content="Portfolio website for Liam Murphy, Aerospace Engineering student at CU Boulder focused on aerodynamics, composites, and robotics.">
+  <style>
+    @font-face {
+      font-family: "Geist";
+      src: url("https://cdn.jsdelivr.net/npm/geist@1.5.1/dist/fonts/geist-sans/GeistVariableVF.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Geist Mono";
+      src: url("https://cdn.jsdelivr.net/npm/geist@1.5.1/dist/fonts/geist-mono/GeistMonoVariableVF.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #dbe3ee;
+      --accent: #0f172a;
+      --accent-soft: #2563eb;
+      --shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Geist", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 90% 0%, rgba(37, 99, 235, 0.09), transparent 28%),
+        radial-gradient(circle at 8% 18%, rgba(15, 23, 42, 0.05), transparent 24%),
+        var(--bg);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .container {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+    }
+
+    .chip {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.34rem 0.72rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #334155;
+      background: #f8fbff;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(248, 250, 252, 0.88);
+      border-bottom: 1px solid rgba(219, 227, 238, 0.85);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 72px;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.3rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1e293b;
+      font-size: 0.93rem;
+      font-weight: 500;
+      padding: 0.42rem 0.62rem;
+      border-radius: 8px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    nav a:hover {
+      background: #e9f1ff;
+      color: #0b3ca8;
+    }
+
+    main {
+      padding: 2.8rem 0 3.2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 1.6rem;
+      align-items: stretch;
+      padding: 1.6rem 0 2.1rem;
+    }
+
+    .headline {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin: 0.72rem 0 1rem;
+      max-width: 18ch;
+    }
+
+    .subhead {
+      color: var(--muted);
+      max-width: 58ch;
+      margin-bottom: 1.35rem;
+      font-size: 1rem;
+    }
+
+    .cta {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 0.68rem 1rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      background: var(--surface);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .hero-card h2 {
+      margin-bottom: 0.55rem;
+      font-size: 1.03rem;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .mini-list {
+      list-style: none;
+      margin-top: 0.85rem;
+      display: grid;
+      gap: 0.52rem;
+    }
+
+    .mini-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dashed #e2e8f0;
+      padding-bottom: 0.42rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    section {
+      padding: 2rem 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.95rem;
+    }
+
+    .about-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .about-panel p {
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.72rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      background: #f9fbff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      color: #1e293b;
+      letter-spacing: -0.02em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.9rem;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 1.1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 5px 16px rgba(15, 23, 42, 0.04);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: #c6d6ee;
+    }
+
+    .card h3 {
+      font-size: 1.08rem;
+      font-weight: 640;
+      letter-spacing: -0.01em;
+      margin: 0.42rem 0;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .tags {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 0.44rem;
+      flex-wrap: wrap;
+    }
+
+    .tags span {
+      font-size: 0.75rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.21rem 0.56rem;
+      color: #334155;
+      background: #f8fbff;
+    }
+
+    .skill-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+
+    .skill-wrap span {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.33rem 0.68rem;
+      font-size: 0.84rem;
+      color: #27364a;
+      background: #f9fbff;
+    }
+
+    .contact-box {
+      margin-top: 0.9rem;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      padding: 1.15rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .contact-box p {
+      color: var(--muted);
+    }
+
+    .contact-box p a {
+      color: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    .contact-box p a:hover {
+      text-decoration: underline;
+    }
+
+    .email {
+      text-decoration: none;
+      color: #fff;
+      background: #0f172a;
+      border-radius: 10px;
+      padding: 0.62rem 0.88rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .email:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 1.3rem;
+      padding: 1.1rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.48s ease, transform 0.48s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero > * {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: rise 0.58s forwards;
+    }
+
+    .hero > *:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero,
+      .about-panel,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 0.85rem 0;
+        gap: 0.58rem;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+      }
+
+      .grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .headline {
+        font-size: clamp(1.9rem, 9vw, 2.65rem);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal,
+      .hero > * {
+        animation: none;
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="#top">Liam Murphy</a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <span class="chip">Aerospace Engineering Student</span>
+        <h1 class="headline">Designing and building high-performance systems for motorsports, robotics, and aerospace.</h1>
+        <p class="subhead">
+          I am a CU Boulder Aerospace Engineering student focused on aerodynamics, composites, and
+          hands-on prototyping. My recent work spans FSAE vehicle aero, CubeSat development, and
+          client-facing mechanical design.
+        </p>
+        <div class="cta">
+          <a class="button primary" href="#projects">View Projects</a>
+          <a class="button secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Quick profile summary">
+        <h2>At a Glance</h2>
+        <p>Based in Boulder, Colorado and currently studying Aerospace Engineering at the University of Colorado Boulder.</p>
+        <ul class="mini-list">
+          <li><span>Expected Graduation</span><strong>May 2027</strong></li>
+          <li><span>GPA</span><strong>3.2</strong></li>
+          <li><span>Leadership Scope</span><strong>8 Engineers</strong></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="about" class="reveal">
+      <h2 class="section-title">About</h2>
+      <div class="about-panel">
+        <div>
+          <span class="chip">Who I Am</span>
+          <p>
+            I focus on practical engineering execution: aerodynamic design, composite manufacturing,
+            CAD iteration, and test-driven validation. I enjoy building systems that are lightweight,
+            reliable, and ready for real operating conditions.
+          </p>
+        </div>
+        <div>
+          <p>
+            I have led and contributed to multidisciplinary teams across FSAE, CubeSat, client projects,
+            and VEX robotics, with experience translating design goals into buildable hardware.
+          </p>
+          <div class="stats">
+            <div class="stat"><strong>4+</strong><span>Years in Design Teams</span></div>
+            <div class="stat"><strong>2022</strong><span>VEX Worlds Finalist</span></div>
+            <div class="stat"><strong>CU</strong><span>FSAE Branch Member</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <h2 class="section-title">Experience</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="chip">Sep 2024 - Present</span>
+          <h3>FSAE Aerodynamicist / Manufacturer</h3>
+          <p>CU Boulder Racing Team. Designed a ground-effect undertray and diffuser with CFD, manufactured composite aero elements, and validated performance with static and dynamic vehicle testing.</p>
+          <div class="tags">
+            <span>CFD</span><span>Composites</span><span>Vehicle Testing</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="chip">Jan 2026 - Present</span>
+          <h3>Client Project Team Lead</h3>
+          <p>LotSpot. Managed subteams and deliverables to client timelines, and redesigned parking sensor chassis CAD for improved weatherproofing and tamper resistance.</p>
+          <div class="tags">
+            <span>Project Leadership</span><span>CAD</span><span>Product Delivery</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="chip">Jan 2024 - Apr 2024</span>
+          <h3>CubeSat Team Lead</h3>
+          <p>CU Boulder Aerospace Projects. Designed and manufactured a small atmospheric satellite platform for motor and solar panel testing in extreme conditions.</p>
+          <div class="tags">
+            <span>SmallSat</span><span>Testing</span><span>Systems Integration</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="chip">Aug 2020 - Jun 2023</span>
+          <h3>Design Lead, VEX Robotics</h3>
+          <p>VEX Robotics Competition, team 4154X. Led mechanical game-solution design and reached finalist status at VEX Worlds 2022.</p>
+          <div class="tags">
+            <span>Mechanism Design</span><span>Competition Robotics</span><span>Team Leadership</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="chip">Sep 2025 - Present</span>
+          <h3>FPV Racing Drone</h3>
+          <p>Built a custom micro-quadcopter targeting a power-to-weight ratio above 3 for aerobatics, using iterative flight and static testing to improve frame and avionics packaging performance.</p>
+          <div class="tags">
+            <span>Aero Design</span><span>Flight Testing</span><span>Avionics Packaging</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="chip">FSAE Program</span>
+          <h3>Ground-Effect Undertray + Diffuser</h3>
+          <p>Engineered an FSAE undertray and diffuser focused on aerodynamic gain and manufacturability, combining CFD analysis with practical fabrication and quality-controlled layup testing.</p>
+          <div class="tags">
+            <span>Aerodynamics</span><span>CFD</span><span>Composite Manufacturing</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="chip">CU Aerospace Projects</span>
+          <h3>Atmospheric CubeSat Platform</h3>
+          <p>Designed and manufactured a compact test satellite to evaluate motors and solar panels under extreme environmental conditions while coordinating team deliverables.</p>
+          <div class="tags">
+            <span>Prototype Build</span><span>Environmental Testing</span><span>Technical Leadership</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="chip">Client Engineering</span>
+          <h3>LotSpot Sensor Chassis Redesign</h3>
+          <p>Updated CAD architecture for a parking sensor chassis to improve weather protection and tamper resistance while keeping the project aligned with client deadlines.</p>
+          <div class="tags">
+            <span>Mechanical CAD</span><span>Design Iteration</span><span>Client Communication</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <h2 class="section-title">Skills &amp; Tools</h2>
+      <p class="subhead">Core technical and team skills from aerospace, motorsports, and robotics projects.</p>
+      <div class="skill-wrap">
+        <span>Composites Manufacturing</span><span>Aerodynamic Design</span><span>Machining</span>
+        <span>CAD</span><span>CFD</span><span>MATLAB</span><span>Project Management</span>
+        <span>Team Leadership</span><span>Technical Communication</span><span>Systems Prototyping</span>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-box">
+        <p>
+          Open to engineering internships, project collaborations, and technical team roles.
+          Call: 910-599-0023.
+          LinkedIn: <a href="https://www.linkedin.com/in/LiamMur" target="_blank" rel="noopener">linkedin.com/in/LiamMur</a>.
+        </p>
+        <a class="email" href="mailto:murli01quebo@gmail.com">murli01quebo@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>&copy; <span id="year"></span> Liam Murphy. All rights reserved.</p>
+    <p>Aerospace engineering portfolio.</p>
+  </footer>
+
+  <script>
+    const yearEl = document.getElementById("year");
+    yearEl.textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((section) => observer.observe(section));
+  </script>
+</body>
+</html>
