@@ -4,10 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Liam Murphy — Aerospace Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
   --bg:      #07090d;
   --bg2:     #0b1018;
@@ -21,21 +20,14 @@
   --muted:   #536070;
   --dim:     #8a9daf;
 }
-
 html { scroll-behavior: smooth; }
-
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-  line-height: 1.7;
-  overflow-x: hidden;
+  background: var(--bg); color: var(--text);
+  font-family: 'DM Sans', sans-serif; font-weight: 400;
+  line-height: 1.7; overflow-x: hidden;
 }
-
 body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 999; pointer-events: none;
+  content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   background-size: 300px; opacity: 0.5;
 }
@@ -45,36 +37,31 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.1rem 3.5rem;
-  background: rgba(7,9,13,0.88);
-  backdrop-filter: blur(20px);
+  background: rgba(7,9,13,0.88); backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }
 .nav-logo {
-  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem;
-  letter-spacing: -0.02em; color: var(--text); text-decoration: none;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.2rem;
+  letter-spacing: 0.04em; color: var(--text); text-decoration: none; text-transform: uppercase;
 }
 .nav-logo span { color: var(--accent); }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
   font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--muted); text-decoration: none;
-  transition: color 0.2s;
+  text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--accent); }
 .nav-cta {
   font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--accent); text-decoration: none;
-  border: 1px solid var(--accent); padding: 0.45rem 1.2rem;
-  transition: background 0.2s, color 0.2s;
+  border: 1px solid var(--accent); padding: 0.45rem 1.2rem; transition: background 0.2s, color 0.2s;
 }
 .nav-cta:hover { background: var(--accent); color: var(--bg); }
 
 /* HERO */
 #hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 9rem 3.5rem 6rem;
-  position: relative; overflow: hidden;
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  padding: 9rem 3.5rem 6rem; position: relative; overflow: hidden;
 }
 .hero-grid {
   position: absolute; inset: 0; pointer-events: none;
@@ -85,47 +72,36 @@ nav {
 }
 .hero-glow {
   position: absolute; top: 20%; right: -10%; width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(232,115,42,0.08) 0%, transparent 70%);
-  pointer-events: none;
+  background: radial-gradient(circle, rgba(232,115,42,0.08) 0%, transparent 70%); pointer-events: none;
 }
 .hero-eyebrow {
   font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 1.4rem;
-  display: flex; align-items: center; gap: 0.9rem;
-  animation: fadeUp 0.7s ease both;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 0.9rem; animation: fadeUp 0.7s ease both;
 }
-.hero-eyebrow::before {
-  content: ''; display: inline-block; width: 36px; height: 1px; background: var(--accent);
-}
+.hero-eyebrow::before { content: ''; display: inline-block; width: 36px; height: 1px; background: var(--accent); }
 h1 {
-  font-family: 'Syne', sans-serif; font-weight: 800;
-  font-size: clamp(2.4rem, 5vw, 4.6rem);
-  line-height: 1.06; letter-spacing: -0.03em;
-  max-width: 700px; margin-bottom: 1.8rem;
-  animation: fadeUp 0.7s 0.1s ease both;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+  font-size: clamp(3.2rem, 7vw, 6.5rem); line-height: 0.96;
+  letter-spacing: 0.01em; text-transform: uppercase;
+  max-width: 780px; margin-bottom: 1.8rem; animation: fadeUp 0.7s 0.1s ease both;
 }
 h1 em { font-style: normal; color: var(--accent); }
 .hero-sub {
   font-size: 1rem; color: var(--dim); max-width: 480px;
-  line-height: 1.8; margin-bottom: 2.8rem; font-weight: 300;
-  animation: fadeUp 0.7s 0.2s ease both;
+  line-height: 1.8; margin-bottom: 2.8rem; font-weight: 300; animation: fadeUp 0.7s 0.2s ease both;
 }
-.hero-actions {
-  display: flex; gap: 1rem; flex-wrap: wrap;
-  animation: fadeUp 0.7s 0.3s ease both;
-}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
 .btn-primary {
   font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em;
   text-transform: uppercase; background: var(--accent); color: var(--bg);
-  padding: 0.9rem 2rem; text-decoration: none; font-weight: 700;
-  transition: background 0.2s, transform 0.15s;
+  padding: 0.9rem 2rem; text-decoration: none; font-weight: 700; transition: background 0.2s, transform 0.15s;
 }
 .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
 .btn-outline {
   font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em;
   text-transform: uppercase; border: 1px solid var(--border2); color: var(--dim);
-  padding: 0.9rem 2rem; text-decoration: none;
-  transition: border-color 0.2s, color 0.2s;
+  padding: 0.9rem 2rem; text-decoration: none; transition: border-color 0.2s, color 0.2s;
 }
 .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -134,220 +110,122 @@ h1 em { font-style: normal; color: var(--accent); }
 .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 3.5rem; }
 .section-num { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--accent); letter-spacing: 0.1em; }
 .section-title {
-  font-family: 'Syne', sans-serif; font-weight: 800;
-  font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.02em;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: 0.04em; text-transform: uppercase;
 }
 .section-line { flex: 1; height: 1px; background: var(--border); }
 
 /* ABOUT */
 #about { background: var(--bg2); }
-.about-grid {
-  display: grid;
-  grid-template-columns: 200px 1fr 1fr;
-  gap: 3.5rem;
-  align-items: start;
-}
+.about-grid { display: grid; grid-template-columns: 280px 1fr 1fr; gap: 3.5rem; align-items: start; }
 .about-headshot-wrap { position: relative; }
 .about-headshot-wrap::after {
-  content: '';
-  position: absolute; bottom: -7px; right: -7px;
-  width: 100%; height: 100%;
-  border: 1px solid var(--accent);
-  pointer-events: none;
+  content: ''; position: absolute; bottom: -7px; right: -7px;
+  width: 100%; height: 100%; border: 1px solid var(--accent); pointer-events: none;
 }
 .about-headshot {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-  position: relative;
-  z-index: 1;
-  filter: grayscale(15%);
-  transition: filter 0.3s;
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top;
+  display: block; position: relative; z-index: 1; filter: grayscale(15%); transition: filter 0.3s;
 }
 .about-headshot:hover { filter: grayscale(0%); }
-.about-text p {
-  color: var(--dim); font-size: 0.97rem; font-weight: 300;
-  margin-bottom: 1.2rem; line-height: 1.85;
-}
+.about-text p { color: var(--dim); font-size: 0.97rem; font-weight: 300; margin-bottom: 1.2rem; line-height: 1.85; }
 .about-text p strong { color: var(--text); font-weight: 500; }
 .about-cards { display: flex; flex-direction: column; gap: 1rem; }
 .about-card {
   background: var(--surface); border: 1px solid var(--border);
-  padding: 1.2rem 1.4rem;
-  display: flex; align-items: center; gap: 1.1rem;
-  transition: border-color 0.2s;
+  padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1.1rem; transition: border-color 0.2s;
 }
 .about-card:hover { border-color: var(--accent); }
 .about-card-icon {
-  width: 38px; height: 38px; background: rgba(232,115,42,0.1);
-  border: 1px solid rgba(232,115,42,0.2);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; font-size: 0.95rem;
+  width: 38px; height: 38px; background: rgba(232,115,42,0.1); border: 1px solid rgba(232,115,42,0.2);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.95rem;
 }
-.about-card-val {
-  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; line-height: 1;
-}
+.about-card-val { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.35rem; line-height: 1; letter-spacing: 0.02em; }
 .about-card-val span { color: var(--accent); }
-.about-card-desc {
-  font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--muted); margin-top: 0.25rem;
-}
+.about-card-desc { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
 
 /* EXPERIENCE */
 #experience { background: var(--bg); }
 .exp-list { display: flex; flex-direction: column; }
 .exp-item {
   display: grid; grid-template-columns: 200px 1fr;
-  gap: 0 2.5rem; padding: 2.4rem 0;
-  border-top: 1px solid var(--border);
+  gap: 0 2.5rem; padding: 2.4rem 0; border-top: 1px solid var(--border);
 }
 .exp-item:last-child { border-bottom: 1px solid var(--border); }
-.exp-date {
-  font-family: 'Space Mono', monospace; font-size: 0.63rem; letter-spacing: 0.08em;
-  color: var(--muted); padding-top: 0.3rem; line-height: 1.7;
-}
+.exp-date { font-family: 'Space Mono', monospace; font-size: 0.63rem; letter-spacing: 0.08em; color: var(--muted); padding-top: 0.3rem; line-height: 1.7; }
 .exp-date strong { display: block; color: var(--accent); font-size: 0.68rem; margin-bottom: 0.2rem; }
-.exp-role {
-  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem;
-  letter-spacing: -0.01em; margin-bottom: 0.2rem;
-}
-.exp-org {
-  font-family: 'Space Mono', monospace; font-size: 0.66rem;
-  color: var(--accent); letter-spacing: 0.08em; margin-bottom: 0.9rem;
-}
-.exp-body {
-  color: var(--dim); font-size: 0.92rem; font-weight: 300;
-  line-height: 1.8; margin-bottom: 1rem; padding-left: 1.1rem;
-}
+.exp-role { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.exp-org { font-family: 'Space Mono', monospace; font-size: 0.66rem; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 0.9rem; }
+.exp-body { color: var(--dim); font-size: 0.92rem; font-weight: 300; line-height: 1.8; margin-bottom: 1rem; padding-left: 1.1rem; }
 .exp-body li { margin-bottom: 0.35rem; }
+.exp-img {
+  width: 100%; height: 160px; object-fit: cover; display: block; margin-bottom: 1.2rem;
+  filter: grayscale(25%) brightness(0.8); transition: filter 0.3s;
+}
+.exp-item:hover .exp-img { filter: grayscale(5%) brightness(0.95); }
 .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .tag {
   font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--muted);
-  border: 1px solid var(--border); padding: 0.28rem 0.65rem;
-  transition: border-color 0.2s, color 0.2s;
+  text-transform: uppercase; color: var(--muted); border: 1px solid var(--border);
+  padding: 0.28rem 0.65rem; transition: border-color 0.2s, color 0.2s;
 }
 .tag:hover { border-color: var(--accent); color: var(--accent); }
 
 /* PROJECTS */
 #projects { background: var(--bg2); }
-.projects-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 1.5px; background: var(--border);
-}
+.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--border); }
 .project-card {
-  background: var(--bg2); padding: 2.2rem;
-  transition: background 0.2s;
-  position: relative; overflow: hidden;
+  background: var(--bg2); transition: background 0.2s;
+  position: relative; overflow: hidden; display: flex; flex-direction: column;
 }
 .project-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: var(--accent); transform: scaleX(0); transform-origin: left;
-  transition: transform 0.3s;
+  background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; z-index: 1;
 }
 .project-card:hover { background: var(--surface); }
 .project-card:hover::before { transform: scaleX(1); }
-.project-cat {
-  font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem;
-}
-.project-title {
-  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem;
-  letter-spacing: -0.01em; margin-bottom: 0.8rem; line-height: 1.25;
-}
-.project-desc {
-  color: var(--dim); font-size: 0.88rem; font-weight: 300;
-  line-height: 1.8; margin-bottom: 1.1rem;
-}
-.project-details { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.3rem; }
-.project-detail-row {
-  display: flex; align-items: flex-start; gap: 0.6rem;
-  font-size: 0.84rem; color: var(--dim); font-weight: 300;
-}
-.project-detail-row::before {
-  content: '→'; color: var(--accent);
-  font-family: 'Space Mono', monospace; font-size: 0.68rem;
-  flex-shrink: 0; margin-top: 0.22rem;
-}
+.project-img { width: 100%; height: 200px; object-fit: cover; display: block; filter: grayscale(30%) brightness(0.85); transition: filter 0.3s; }
+.project-card:hover .project-img { filter: grayscale(10%) brightness(0.95); }
+.project-body { padding: 1.8rem 2.2rem 2.2rem; flex: 1; display: flex; flex-direction: column; }
+.project-cat { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+.project-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 0.8rem; line-height: 1.15; }
+.project-desc { color: var(--dim); font-size: 0.88rem; font-weight: 300; line-height: 1.8; margin-bottom: 1.1rem; }
+.project-details { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.3rem; flex: 1; }
+.project-detail-row { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.84rem; color: var(--dim); font-weight: 300; }
+.project-detail-row::before { content: '→'; color: var(--accent); font-family: 'Space Mono', monospace; font-size: 0.68rem; flex-shrink: 0; margin-top: 0.22rem; }
 
 /* SKILLS */
 #skills { background: var(--bg); }
 .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 4rem; }
-.skill-group-title {
-  font-family: 'Space Mono', monospace; font-size: 0.63rem; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 1.1rem;
-  padding-bottom: 0.65rem; border-bottom: 1px solid var(--border);
-}
+.skill-group-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border); }
 .skill-list { display: flex; flex-wrap: wrap; gap: 0.55rem; }
-.skill-pill {
-  font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.04em;
-  color: var(--dim); border: 1px solid var(--border);
-  padding: 0.45rem 0.85rem; transition: all 0.2s; cursor: default;
-}
+.skill-pill { font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.04em; color: var(--dim); border: 1px solid var(--border); padding: 0.45rem 0.85rem; transition: all 0.2s; cursor: default; }
 .skill-pill:hover { background: var(--surf2); color: var(--text); border-color: var(--border2); }
 .skill-pill.hl { border-color: rgba(232,115,42,0.3); color: var(--accent); }
 .skill-pill.hl:hover { background: rgba(232,115,42,0.1); }
 
 /* CONTACT */
 #contact { background: var(--surface); }
-.contact-inner {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-}
-.contact-headline {
-  font-family: 'Syne', sans-serif; font-weight: 800;
-  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
-  letter-spacing: -0.025em; line-height: 1.12; margin-bottom: 1.2rem;
-}
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.contact-headline { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4vw, 3.2rem); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.05; margin-bottom: 1.2rem; }
 .contact-headline em { font-style: normal; color: var(--accent); }
 .contact-body { color: var(--dim); font-size: 0.93rem; font-weight: 300; line-height: 1.85; }
 .contact-right { display: flex; flex-direction: column; gap: 1rem; }
-.contact-link {
-  display: flex; align-items: center; gap: 1.2rem;
-  background: var(--surf2); border: 1px solid var(--border);
-  padding: 1.1rem 1.4rem; text-decoration: none;
-  transition: border-color 0.2s, background 0.2s;
-}
+.contact-link { display: flex; align-items: center; gap: 1.2rem; background: var(--surf2); border: 1px solid var(--border); padding: 1.1rem 1.4rem; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
 .contact-link:hover { border-color: var(--accent); background: var(--bg2); }
-.contact-link-icon {
-  width: 36px; height: 36px; background: rgba(232,115,42,0.1);
-  border: 1px solid rgba(232,115,42,0.2);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; font-size: 0.85rem;
-  font-family: 'Space Mono', monospace; color: var(--accent); font-weight: 700;
-}
-.contact-link-label {
-  font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem;
-}
+.contact-link-icon { width: 36px; height: 36px; background: rgba(232,115,42,0.1); border: 1px solid rgba(232,115,42,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.85rem; font-family: 'Space Mono', monospace; color: var(--accent); font-weight: 700; }
+.contact-link-label { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
 .contact-link-val { font-size: 0.88rem; color: var(--text); }
 
 /* FOOTER */
-footer {
-  background: var(--bg); border-top: 1px solid var(--border);
-  padding: 2rem 3.5rem;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.footer-copy {
-  font-family: 'Space Mono', monospace; font-size: 0.6rem;
-  letter-spacing: 0.1em; color: var(--muted);
-}
-.footer-right {
-  font-family: 'Space Mono', monospace; font-size: 0.6rem;
-  letter-spacing: 0.08em; color: var(--muted);
-}
+footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2rem 3.5rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--muted); }
+.footer-right { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; color: var(--muted); }
 .footer-right span { color: var(--accent); }
 
 /* ANIMATIONS */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.reveal {
-  opacity: 0; transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* RESPONSIVE */
@@ -357,9 +235,8 @@ footer {
   #hero { padding: 7rem 1.5rem 4rem; }
   .section-wrap { padding: 4rem 1.5rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .about-headshot-wrap { max-width: 180px; }
-  .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .about-headshot-wrap { max-width: 220px; }
+  .contact-inner, .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
   .projects-grid { grid-template-columns: 1fr; }
   .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
   footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
@@ -403,17 +280,14 @@ footer {
       <div class="section-line"></div>
     </div>
     <div class="about-grid">
-
       <div class="about-headshot-wrap reveal">
         <img class="about-headshot" src="images/headshot.jpeg" alt="Liam Murphy"/>
       </div>
-
       <div class="about-text reveal">
         <p>I'm a <strong>junior Aerospace Engineering student at CU Boulder</strong> with a hands-on focus across aerodynamics, composites manufacturing, CAD, and systems validation. I care about building things that work under real conditions — not just in simulation.</p>
         <p>My work spans Formula SAE aerodynamic development, smallsat system design, commercial client deliverables, and personal engineering projects. I've led and contributed to multidisciplinary teams ranging from university competitions to client-facing product work.</p>
         <p>I'm strongest at the intersection of <strong>analytical design and physical manufacturing</strong> — taking a concept from CFD or FEA to a finished, tested part.</p>
       </div>
-
       <div class="about-cards reveal">
         <div class="about-card">
           <div class="about-card-icon">🎓</div>
@@ -444,7 +318,6 @@ footer {
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -465,6 +338,7 @@ footer {
           CU Boulder Racing Team<br/>Boulder, CO
         </div>
         <div>
+          <img class="exp-img" src="images/formula.png" alt="FSAE Racing"/>
           <div class="exp-role">FSAE Aerodynamicist / Manufacturer</div>
           <div class="exp-org">CU Boulder Racing Team</div>
           <ul class="exp-body">
@@ -475,11 +349,7 @@ footer {
             <li>Coordinated across sub-teams to prevent design conflicts and ensure system-level integration</li>
           </ul>
           <div class="tag-row">
-            <span class="tag">CFD</span>
-            <span class="tag">Composites</span>
-            <span class="tag">FEA</span>
-            <span class="tag">Vehicle Testing</span>
-            <span class="tag">CAD</span>
+            <span class="tag">CFD</span><span class="tag">Composites</span><span class="tag">FEA</span><span class="tag">Vehicle Testing</span><span class="tag">CAD</span>
           </div>
         </div>
       </div>
@@ -490,6 +360,7 @@ footer {
           LotSpot<br/>Boulder, CO
         </div>
         <div>
+          <img class="exp-img" src="images/Cbox.png" alt="LotSpot Housing"/>
           <div class="exp-role">Client Project Team Lead</div>
           <div class="exp-org">LotSpot</div>
           <ul class="exp-body">
@@ -497,10 +368,7 @@ footer {
             <li>Redesigned CAD for parking sensor housing to provide weatherproofing and optimize for a smaller physical footprint</li>
           </ul>
           <div class="tag-row">
-            <span class="tag">Project Leadership</span>
-            <span class="tag">CAD</span>
-            <span class="tag">Product Delivery</span>
-            <span class="tag">Client Communication</span>
+            <span class="tag">Project Leadership</span><span class="tag">CAD</span><span class="tag">Product Delivery</span><span class="tag">Client Communication</span>
           </div>
         </div>
       </div>
@@ -511,6 +379,7 @@ footer {
           CU Boulder Aerospace Projects<br/>Boulder, CO
         </div>
         <div>
+          <img class="exp-img" src="images/sate.png" alt="CubeSat Platform"/>
           <div class="exp-role">CubeSat Team Lead</div>
           <div class="exp-org">CU Boulder Aerospace Projects</div>
           <ul class="exp-body">
@@ -518,10 +387,7 @@ footer {
             <li>Led a team of 8 engineering students, managing deliverables and design reviews from concept through build</li>
           </ul>
           <div class="tag-row">
-            <span class="tag">SmallSat</span>
-            <span class="tag">Systems Integration</span>
-            <span class="tag">Team Leadership</span>
-            <span class="tag">Environmental Testing</span>
+            <span class="tag">SmallSat</span><span class="tag">Systems Integration</span><span class="tag">Team Leadership</span><span class="tag">Environmental Testing</span>
           </div>
         </div>
       </div>
@@ -532,6 +398,7 @@ footer {
           VEX Robotics<br/>Davie, FL
         </div>
         <div>
+          <img class="exp-img" src="images/robot.png" alt="VEX Robotics Competition"/>
           <div class="exp-role">Design Lead — Team 4154X</div>
           <div class="exp-org">VEX Robotics Competition</div>
           <ul class="exp-body">
@@ -539,9 +406,7 @@ footer {
             <li>Reached Finalist status at VEX World Championship 2022</li>
           </ul>
           <div class="tag-row">
-            <span class="tag">Mechanism Design</span>
-            <span class="tag">Competition Robotics</span>
-            <span class="tag">Team Leadership</span>
+            <span class="tag">Mechanism Design</span><span class="tag">Competition Robotics</span><span class="tag">Team Leadership</span>
           </div>
         </div>
       </div>
@@ -561,62 +426,74 @@ footer {
     <div class="projects-grid">
 
       <div class="project-card reveal">
-        <div class="project-cat">FSAE · Sep 2024 – Present</div>
-        <div class="project-title">Ground-Effect Undertray &amp; Diffuser</div>
-        <p class="project-desc">Designed and validated a full undertray and diffuser system targeting increased downforce and cornering velocity under FSAE rules constraints.</p>
-        <div class="project-details">
-          <div class="project-detail-row">Inlet/throat geometry constrained by suspension packaging and competition rules</div>
-          <div class="project-detail-row">Two inlet designs iterated via CFD to minimize underbody pressure and maximize diffuser mass air flow</div>
-          <div class="project-detail-row">Carbon composite elements manufactured with quality-controlled layups for weight and consistency</div>
-          <div class="project-detail-row">Performance validated through static and dynamic vehicle testing</div>
-        </div>
-        <div class="tag-row">
-          <span class="tag">CFD</span><span class="tag">Aerodynamics</span><span class="tag">Composites</span><span class="tag">CAD</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-cat">FSAE · 2024–2025</div>
-        <div class="project-title">Carbon Fiber Coupon Testing &amp; Material Characterization</div>
-        <p class="project-desc">Built a validated material dataset for the FSAE car's carbon fiber laminate to enable accurate structural FEA in future component design.</p>
-        <div class="project-details">
-          <div class="project-detail-row">Manufactured coupons with controlled epoxy content to assess laminate property variability</div>
-          <div class="project-detail-row">Performed tensile and compressive testing to extract strength and modulus values</div>
-          <div class="project-detail-row">Iterated coupon geometry and layup procedure to reduce scatter and improve repeatability</div>
-          <div class="project-detail-row">Dataset directly feeds structural FEA for future aero components</div>
-        </div>
-        <div class="tag-row">
-          <span class="tag">Composites</span><span class="tag">Materials Testing</span><span class="tag">FEA</span><span class="tag">Manufacturing</span>
+        <img class="project-img" src="images/cfd.png" alt="CFD pressure field of undertray"/>
+        <div class="project-body">
+          <div class="project-cat">FSAE · Sep 2024 – Present</div>
+          <div class="project-title">Ground-Effect Undertray &amp; Diffuser</div>
+          <p class="project-desc">Designed and validated a full undertray and diffuser system targeting increased downforce and cornering velocity under FSAE rules constraints.</p>
+          <div class="project-details">
+            <div class="project-detail-row">Inlet/throat geometry constrained by suspension packaging and competition rules</div>
+            <div class="project-detail-row">Two inlet designs iterated via CFD to minimize underbody pressure and maximize diffuser mass air flow</div>
+            <div class="project-detail-row">Carbon composite elements manufactured with quality-controlled layups for weight and consistency</div>
+            <div class="project-detail-row">Performance validated through static and dynamic vehicle testing</div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">CFD</span><span class="tag">Aerodynamics</span><span class="tag">Composites</span><span class="tag">CAD</span>
+          </div>
         </div>
       </div>
 
       <div class="project-card reveal">
-        <div class="project-cat">Personal Project · Sep 2025 – Present (WIP)</div>
-        <div class="project-title">FPV Racing Drone</div>
-        <p class="project-desc">Designing and building a small/midsize class FPV racing quadcopter from scratch — 3D-printed frame, off-the-shelf avionics, targeting a power-to-weight ratio of 3+.</p>
-        <div class="project-details">
-          <div class="project-detail-row">Avionics selected via constraint-driven trade study on weight, size, and power</div>
-          <div class="project-detail-row">Motor arms designed with integrated spars, validated by FEA (max deflection: 0.164 mm)</div>
-          <div class="project-detail-row">Max velocity and angular rates computed using quadcopter rigid-body equations of motion</div>
-          <div class="project-detail-row">Iterative flight and static testing used to refine frame and avionics packaging</div>
-        </div>
-        <div class="tag-row">
-          <span class="tag">FEA</span><span class="tag">3D Printing</span><span class="tag">Avionics</span><span class="tag">Flight Dynamics</span>
+        <img class="project-img" src="images/carbon.png" alt="Carbon fiber coupons"/>
+        <div class="project-body">
+          <div class="project-cat">FSAE · 2024–2025</div>
+          <div class="project-title">Carbon Fiber Coupon Testing &amp; Material Characterization</div>
+          <p class="project-desc">Built a validated material dataset for the FSAE car's carbon fiber laminate to enable accurate structural FEA in future component design.</p>
+          <div class="project-details">
+            <div class="project-detail-row">Manufactured coupons with controlled epoxy content to assess laminate property variability</div>
+            <div class="project-detail-row">Performed tensile and compressive testing to extract strength and modulus values</div>
+            <div class="project-detail-row">Iterated coupon geometry and layup procedure to reduce scatter and improve repeatability</div>
+            <div class="project-detail-row">Dataset directly feeds structural FEA for future aero components</div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Composites</span><span class="tag">Materials Testing</span><span class="tag">FEA</span><span class="tag">Manufacturing</span>
+          </div>
         </div>
       </div>
 
       <div class="project-card reveal">
-        <div class="project-cat">Client Engineering · Jan 2026 – Present</div>
-        <div class="project-title">LotSpot Camera/Computer Housing</div>
-        <p class="project-desc">Redesigned the enclosure for a smart parking lot monitor — shrinking its footprint, hardening it for outdoor weather exposure, and adding a driver-facing LED availability indicator.</p>
-        <div class="project-details">
-          <div class="project-detail-row">Exterior shell sealed with weatherproof epoxy around camera and plexiglass windows; no exterior mounting holes to preserve seal integrity</div>
-          <div class="project-detail-row">All hardware mounted to interior frame — decoupling structural loads from the weatherproof shell</div>
-          <div class="project-detail-row">Lid uses a double o-ring design to block moisture ingress into the interior frame</div>
-          <div class="project-detail-row">Rear LED progress bar communicates available parking percentage directly to drivers</div>
+        <img class="project-img" src="images/drone.png" alt="FPV racing drone prototype"/>
+        <div class="project-body">
+          <div class="project-cat">Personal Project · Sep 2025 – Present (WIP)</div>
+          <div class="project-title">FPV Racing Drone</div>
+          <p class="project-desc">Designing and building a small/midsize class FPV racing quadcopter from scratch — 3D-printed frame, off-the-shelf avionics, targeting a power-to-weight ratio of 3+.</p>
+          <div class="project-details">
+            <div class="project-detail-row">Avionics selected via constraint-driven trade study on weight, size, and power</div>
+            <div class="project-detail-row">Motor arms designed with integrated spars, validated by FEA (max deflection: 0.164 mm)</div>
+            <div class="project-detail-row">Max velocity and angular rates computed using quadcopter rigid-body equations of motion</div>
+            <div class="project-detail-row">Iterative flight and static testing used to refine frame and avionics packaging</div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">FEA</span><span class="tag">3D Printing</span><span class="tag">Avionics</span><span class="tag">Flight Dynamics</span>
+          </div>
         </div>
-        <div class="tag-row">
-          <span class="tag">Mechanical CAD</span><span class="tag">Enclosure Design</span><span class="tag">Weatherproofing</span><span class="tag">Client Delivery</span>
+      </div>
+
+      <div class="project-card reveal">
+        <img class="project-img" src="images/box.png" alt="LotSpot housing CAD"/>
+        <div class="project-body">
+          <div class="project-cat">Client Engineering · Jan 2026 – Present</div>
+          <div class="project-title">LotSpot Camera/Computer Housing</div>
+          <p class="project-desc">Redesigned the enclosure for a smart parking lot monitor — shrinking its footprint, hardening it for outdoor weather exposure, and adding a driver-facing LED availability indicator.</p>
+          <div class="project-details">
+            <div class="project-detail-row">Exterior shell sealed with weatherproof epoxy; no exterior mounting holes to preserve seal integrity</div>
+            <div class="project-detail-row">All hardware mounted to interior frame, decoupling structural loads from the weatherproof shell</div>
+            <div class="project-detail-row">Lid uses a double o-ring design to block moisture ingress into the interior</div>
+            <div class="project-detail-row">Rear LED progress bar communicates available parking percentage directly to drivers</div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Mechanical CAD</span><span class="tag">Enclosure Design</span><span class="tag">Weatherproofing</span><span class="tag">Client Delivery</span>
+          </div>
         </div>
       </div>
 
