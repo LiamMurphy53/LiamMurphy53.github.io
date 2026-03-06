@@ -60,8 +60,12 @@ nav {
 
 /* HERO */
 #hero {
-  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-  padding: 9rem 3.5rem 6rem; position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  align-items: center;
+  padding: 9rem 3.5rem 6rem;
+  position: relative; overflow: hidden; gap: 3rem;
 }
 .hero-grid {
   position: absolute; inset: 0; pointer-events: none;
@@ -74,6 +78,10 @@ nav {
   position: absolute; top: 20%; right: -10%; width: 600px; height: 600px;
   background: radial-gradient(circle, rgba(232,115,42,0.08) 0%, transparent 70%); pointer-events: none;
 }
+.hero-content {
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 1;
+}
 .hero-eyebrow {
   font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.22em;
   text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem;
@@ -82,9 +90,9 @@ nav {
 .hero-eyebrow::before { content: ''; display: inline-block; width: 36px; height: 1px; background: var(--accent); }
 h1 {
   font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
-  font-size: clamp(3.2rem, 7vw, 6.5rem); line-height: 0.96;
+  font-size: clamp(3.2rem, 6vw, 6rem); line-height: 0.96;
   letter-spacing: 0.01em; text-transform: uppercase;
-  max-width: 780px; margin-bottom: 1.8rem; animation: fadeUp 0.7s 0.1s ease both;
+  max-width: 680px; margin-bottom: 1.8rem; animation: fadeUp 0.7s 0.1s ease both;
 }
 h1 em { font-style: normal; color: var(--accent); }
 .hero-sub {
@@ -105,6 +113,45 @@ h1 em { font-style: normal; color: var(--accent); }
 }
 .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
+/* HERO PHOTOS — staggered overlap layout */
+.hero-photos {
+  position: relative; z-index: 1;
+  height: 600px;
+  animation: fadeUp 0.7s 0.35s ease both;
+}
+/* formula car image: full background, left-aligned, taller */
+.hero-photo-bg {
+  position: absolute;
+  top: 60px; left: 0;
+  width: 88%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center center;
+  filter: grayscale(20%) brightness(0.85);
+  transition: filter 0.3s;
+  border: 1px solid var(--border);
+}
+.hero-photo-bg:hover { filter: grayscale(0%) brightness(1); }
+/* headshot: shifted further left so face clears the car */
+.hero-photo-fg {
+  position: absolute;
+  top: 0; left: -30%;
+  width: 58%;
+  height: 380px;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(10%) brightness(0.9);
+  transition: filter 0.3s;
+  border: 1px solid var(--border2);
+  box-shadow: -8px 8px 40px rgba(0,0,0,0.6);
+}
+.hero-photo-fg:hover { filter: grayscale(0%) brightness(1); }
+.hero-photo-label {
+  position: absolute; bottom: 0; left: 0;
+  font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted);
+}
+
 /* SHARED */
 .section-wrap { max-width: 960px; margin: 0 auto; padding: 6rem 3.5rem; }
 .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 3.5rem; }
@@ -118,18 +165,18 @@ h1 em { font-style: normal; color: var(--accent); }
 /* ABOUT */
 #about { background: var(--bg2); }
 .about-grid { display: grid; grid-template-columns: 280px 1fr 1fr; gap: 3.5rem; align-items: start; }
-.about-headshot-wrap { position: relative; }
-.about-headshot-wrap::after {
-  content: ''; position: absolute; bottom: -7px; right: -7px;
-  width: 100%; height: 100%; border: 1px solid var(--accent); pointer-events: none;
+.about-photos-wrap { display: flex; flex-direction: column; gap: 0.9rem; }
+.about-photo-top {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover;
+  display: block; filter: grayscale(15%) brightness(0.88); transition: filter 0.3s; border: 1px solid var(--border2);
 }
-.about-headshot {
-  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top;
-  display: block; position: relative; z-index: 1; filter: grayscale(15%); transition: filter 0.3s;
+.about-photo-top:hover { filter: grayscale(0%) brightness(1); }
+.about-photo-bottom {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center center;
+  display: block; filter: grayscale(15%) brightness(0.88); transition: filter 0.3s; border: 1px solid var(--border);
 }
-.about-headshot:hover { filter: grayscale(0%); }
+.about-photo-bottom:hover { filter: grayscale(0%) brightness(1); }
 .about-text p { color: var(--dim); font-size: 0.97rem; font-weight: 300; margin-bottom: 1.2rem; line-height: 1.85; }
-.about-text p strong { color: var(--text); font-weight: 500; }
 .about-cards { display: flex; flex-direction: column; gap: 1rem; }
 .about-card {
   background: var(--surface); border: 1px solid var(--border);
@@ -158,17 +205,7 @@ h1 em { font-style: normal; color: var(--accent); }
 .exp-org { font-family: 'Space Mono', monospace; font-size: 0.66rem; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 0.9rem; }
 .exp-body { color: var(--dim); font-size: 0.92rem; font-weight: 300; line-height: 1.8; margin-bottom: 1rem; padding-left: 1.1rem; }
 .exp-body li { margin-bottom: 0.35rem; }
-.exp-img {
-  width: 75%;
-  max-width: 360px;
-  aspect-ratio: 5 / 4;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  margin-bottom: 1.2rem;
-  filter: grayscale(25%) brightness(0.8);
-  transition: filter 0.3s;
-}
+.exp-img { width: 75%; max-width: 360px; aspect-ratio: 5/4; height: auto; object-fit: cover; display: block; margin-bottom: 1.2rem; filter: grayscale(25%) brightness(0.8); transition: filter 0.3s; }
 .exp-item:hover .exp-img { filter: grayscale(5%) brightness(0.95); }
 .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .tag {
@@ -178,11 +215,35 @@ h1 em { font-style: normal; color: var(--accent); }
 }
 .tag:hover { border-color: var(--accent); color: var(--accent); }
 
+/* MOTORSPORT */
+#motorsport { background: var(--bg2); }
+.motorsport-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.motorsport-headline {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+  font-size: clamp(2rem, 3.5vw, 2.8rem); letter-spacing: 0.02em; text-transform: uppercase;
+  line-height: 1.05; margin-bottom: 1.4rem;
+}
+.motorsport-headline em { font-style: normal; color: var(--accent); }
+.motorsport-body { color: var(--dim); font-size: 0.95rem; font-weight: 300; line-height: 1.9; margin-bottom: 1.2rem; }
+.motorsport-stat-row { display: flex; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+.motorsport-stat {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 1.1rem 1.4rem; flex: 1; min-width: 110px; transition: border-color 0.2s;
+}
+.motorsport-stat:hover { border-color: var(--accent); }
+.motorsport-stat-val { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2rem; line-height: 1; color: var(--accent); }
+.motorsport-stat-label { font-family: 'Space Mono', monospace; font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
+.motorsport-photos { display: flex; flex-direction: column; gap: 1rem; }
+.motorsport-photo-main { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; filter: grayscale(15%) brightness(0.88); transition: filter 0.3s; border: 1px solid var(--border2); }
+.motorsport-photo-main:hover { filter: grayscale(0%) brightness(1); }
+.motorsport-photo-secondary { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center top; display: block; filter: grayscale(15%) brightness(0.85); transition: filter 0.3s; border: 1px solid var(--border); }
+.motorsport-photo-secondary:hover { filter: grayscale(0%) brightness(1); }
+
 /* PROJECTS */
-#projects { background: var(--bg2); }
+#projects { background: var(--bg); }
 .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--border); }
 .project-card {
-  background: var(--bg2); transition: background 0.2s;
+  background: var(--bg); transition: background 0.2s;
   position: relative; overflow: hidden; display: flex; flex-direction: column;
 }
 .project-card::before {
@@ -202,7 +263,7 @@ h1 em { font-style: normal; color: var(--accent); }
 .project-detail-row::before { content: '→'; color: var(--accent); font-family: 'Space Mono', monospace; font-size: 0.68rem; flex-shrink: 0; margin-top: 0.22rem; }
 
 /* SKILLS */
-#skills { background: var(--bg); }
+#skills { background: var(--bg2); }
 .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 4rem; }
 .skill-group-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border); }
 .skill-list { display: flex; flex-wrap: wrap; gap: 0.55rem; }
@@ -239,10 +300,11 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2r
 @media (max-width: 860px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
-  #hero { padding: 7rem 1.5rem 4rem; }
+  #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 2rem; }
+  .hero-photos { height: 300px; }
   .section-wrap { padding: 4rem 1.5rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .about-headshot-wrap { max-width: 220px; }
+  .motorsport-inner { grid-template-columns: 1fr; gap: 2rem; }
   .contact-inner, .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
   .projects-grid { grid-template-columns: 1fr; }
   .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
@@ -258,6 +320,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2r
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#motorsport">Motorsport</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -269,12 +332,19 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2r
 <section id="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
-  <div class="hero-eyebrow">CU Boulder · Aerospace Engineering · Class of 2027</div>
-  <h1>Building high-performance systems for <em>aerospace,</em> motorsport, and robotics.</h1>
-  <p class="hero-sub">I design, analyze, and manufacture, from CFD-validated diffuser geometry to carbon fiber layups to FEA-tested drone frames. Seeking engineering internships for Summer 2026.</p>
-  <div class="hero-actions">
-    <a class="btn-primary" href="#projects">View Projects →</a>
-    <a class="btn-outline" href="#contact">Get In Touch</a>
+  <div class="hero-content">
+    <div class="hero-eyebrow">CU Boulder · Aerospace Engineering · Class of 2027</div>
+    <h1>Building high-performance systems for <em>aerospace,</em> motorsport, and robotics.</h1>
+    <p class="hero-sub">I design, analyze, and manufacture, from CFD-validated diffuser geometry to carbon fiber layups to FEA-tested drone frames. Seeking engineering internships for Summer 2026.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#projects">View Projects →</a>
+      <a class="btn-outline" href="#contact">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-photos">
+    <img class="hero-photo-bg" src="images/formulaRainbow.png" alt="Formula car in the rain"/>
+    <img class="hero-photo-fg" src="images/headshot.png" alt="Liam Murphy"/>
+    <div class="hero-photo-label">CU Boulder Racing · FSAE</div>
   </div>
 </section>
 
@@ -287,13 +357,14 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2r
       <div class="section-line"></div>
     </div>
     <div class="about-grid">
-      <div class="about-headshot-wrap reveal">
-        <img class="about-headshot" src="images/headshot.jpeg" alt="Liam Murphy"/>
+      <div class="about-photos-wrap reveal">
+        <img class="about-photo-top" src="images/mclaren.png" alt="McLaren"/>
+        <img class="about-photo-bottom" src="images/wing.png" alt="Aero wing"/>
       </div>
       <div class="about-text reveal">
-        <p>I'm a <strong>junior Aerospace Engineering student at CU Boulder</strong> with a hands-on focus across aerodynamics, composites manufacturing, CAD, and systems validation. I care about building things that work under real conditions, not just in simulation.</p>
+        <p>I'm a junior Aerospace Engineering student at CU Boulder with a hands-on focus across aerodynamics, composites manufacturing, CAD, and systems validation. I care about building things that work under real conditions, not just in simulation.</p>
         <p>My work spans Formula SAE aerodynamic development, smallsat system design, commercial client deliverables, and personal engineering projects. I've led and contributed to multidisciplinary teams ranging from university competitions to client-facing product work.</p>
-        <p>I'm strongest at the intersection of <strong>analytical design and physical manufacturing</strong>, taking a concept from CFD or FEA to a finished, tested part.</p>
+        <p>I'm strongest at the intersection of analytical design and physical manufacturing, taking a concept from CFD or FEA to a finished, tested part.</p>
       </div>
       <div class="about-cards reveal">
         <div class="about-card">
@@ -318,10 +389,10 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2r
           </div>
         </div>
         <div class="about-card">
-          <div class="about-card-icon">🏆</div>
+          <div class="about-card-icon">🏁</div>
           <div>
-            <div class="about-card-val"><span>2022</span> Finalist</div>
-            <div class="about-card-desc">VEX Robotics World Championship</div>
+            <div class="about-card-val">Race <span>Driver</span></div>
+            <div class="about-card-desc">CU Boulder Endurance Team</div>
           </div>
         </div>
       </div>
@@ -422,11 +493,51 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2r
   </div>
 </section>
 
+<!-- MOTORSPORT -->
+<section id="motorsport">
+  <div class="section-wrap">
+    <div class="section-label reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Motorsport</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="motorsport-inner">
+      <div class="motorsport-text reveal">
+        <div class="motorsport-headline">Passion for racing, <em>behind the wheel.</em></div>
+        <p class="motorsport-body">Motorsport isn't just something I engineer around. It's something I compete in. After joining CU Boulder Racing Team's Endurance branch as a test driver, I made the move to full race driver and took the wheel at a Champcar Endurance Series event at G2 Motorsports Park.</p>
+        <p class="motorsport-body">The team ran a flawless weekend. We finished 5th in class and 6th overall, a result built on clean, consistent driving and a car that held together start to finish. It was my first endurance race, and it reinforced everything I believe about the relationship between engineering and performance on track.</p>
+        <p class="motorsport-body">I'm continuing to work with the team and looking forward to more time on grid. The goal is simple: go faster, finish races, and keep improving.</p>
+        <div class="motorsport-stat-row">
+          <div class="motorsport-stat">
+            <div class="motorsport-stat-val">5th</div>
+            <div class="motorsport-stat-label">In Class</div>
+          </div>
+          <div class="motorsport-stat">
+            <div class="motorsport-stat-val">6th</div>
+            <div class="motorsport-stat-label">Overall</div>
+          </div>
+          <div class="motorsport-stat">
+            <div class="motorsport-stat-val">G2</div>
+            <div class="motorsport-stat-label">Motorsports Park</div>
+          </div>
+        </div>
+        <div class="tag-row" style="margin-top:1.5rem;">
+          <span class="tag">Champcar Endurance</span><span class="tag">Race Driver</span><span class="tag">Endurance Racing</span><span class="tag">CU Boulder</span>
+        </div>
+      </div>
+      <div class="motorsport-photos reveal">
+        <img class="motorsport-photo-main" src="images/endurTeam.png" alt="CU Boulder Endurance Team"/>
+        <img class="motorsport-photo-secondary" src="images/helmet.png" alt="Racing helmet"/>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-wrap">
     <div class="section-label reveal">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <h2 class="section-title">Projects</h2>
       <div class="section-line"></div>
     </div>
@@ -512,7 +623,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2r
 <section id="skills">
   <div class="section-wrap">
     <div class="section-label reveal">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <h2 class="section-title">Skills &amp; Tools</h2>
       <div class="section-line"></div>
     </div>
@@ -567,7 +678,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2r
 <section id="contact">
   <div class="section-wrap">
     <div class="section-label reveal">
-      <span class="section-num">05</span>
+      <span class="section-num">06</span>
       <h2 class="section-title">Contact</h2>
       <div class="section-line"></div>
     </div>
