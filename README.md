@@ -12,7 +12,7 @@ After publishing with GitHub Pages, this site will be available at:
 
 This portfolio highlights:
 
-- Aerospace engineering experience (FSAE, CubeSat, client engineering work)
+- Aerospace engineering experience (FSAE, CU Boulder SuperSpeed, CU Boulder Robotics, VEX Robotics)
 - Project case summaries
 - Technical skills and contact information
 
@@ -21,13 +21,14 @@ This portfolio highlights:
 - HTML
 - CSS
 - JavaScript
-- Geist font (Vercel)
+- Barlow Condensed, Space Mono, and DM Sans fonts
 
 ## Update Content
 
 Edit the main file:
 
 - `index.html`
+- Replace `resume.pdf` to update the downloadable résumé.
 
 ## Deploy on GitHub Pages (Web UI)
 
