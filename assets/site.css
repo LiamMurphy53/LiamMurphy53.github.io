@@ -1,0 +1,147 @@
+:root{--bg:#e7e8ea;--fg:#292c30;--muted:#62676e;--line:#c9cdd2;--accent:#596779;--surface:#daddE1;--serif:'DM Sans',Arial,sans-serif;--sans:'DM Sans',Arial,sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:35px}body{margin:0;background:linear-gradient(to bottom,#fcfcfd 0%,#dce0e5 20%,#c0c8d1 55%,#838d96 100%);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}img{display:block;width:100%;height:auto}h1,h2,h3,p,figure{margin:0}h1,h2,h3{font-weight:500}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:5px}::selection{background:#c5ccd5;color:#292c30}.skip-link{position:fixed;top:-100px;left:20px;z-index:100;background:var(--fg);color:var(--bg);padding:10px 18px}.skip-link:focus{top:10px}.site-header{max-width:1440px;margin:auto;padding:32px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}.wordmark{font-size:19px;font-weight:600;letter-spacing:-.7px}.mark-dot{color:var(--accent)}.header-note{font-size:12px;color:var(--muted)}.site-header nav{display:flex;gap:28px;font-size:13px}.site-header nav a:hover,.text-link:hover,.footer-bottom a:hover{color:var(--accent)}.page-layout{max-width:1440px;padding:0 5%;margin:auto}.intro{padding-top:53px}.intro-top{display:flex;justify-content:space-between;align-items:center}.eyebrow,.intro-year{font-size:11px;letter-spacing:.09em;text-transform:uppercase}.eyebrow{color:var(--muted)}.status-dot{width:6px;height:6px;display:inline-block;background:var(--accent);border-radius:50%;margin-right:8px}.intro-year{color:var(--muted)}.hero-heading{display:grid;grid-template-columns:1.8fr 1fr;gap:60px;align-items:center;margin:30px 0 52px}h1{font-family:var(--serif);font-size:clamp(58px,7.2vw,106px);font-weight:400;line-height:1.02;letter-spacing:-.04em}h1 em{font-weight:400;color:var(--accent)}.hero-side{max-width:300px;justify-self:end}.portrait{width:52px;height:60px;object-fit:cover;border-radius:3px;margin-bottom:17px}.hero-side p{font-size:15px;line-height:1.75;color:var(--muted)}.hero-side .text-link{display:inline-block;margin-top:16px}.text-link{font-size:12px;font-weight:500}.intro-bottom{display:flex;justify-content:space-between;padding-bottom:26px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}.work-scroll{display:flex;gap:30px;color:var(--fg)}.index-heading,.side-nav,.side-footer{display:none}.section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:35px 0 26px}.section-heading h2{font-size:16px;letter-spacing:-.3px}.section-heading>span{font-size:11px;color:var(--muted)}.count{font-size:10px;color:var(--muted);font-weight:400;margin-left:10px}.projects{display:grid;grid-template-columns:1fr 1fr;gap:58px 30px}.project{min-width:0}.project-image{display:block;position:relative;overflow:hidden;aspect-ratio:1.45;background:var(--surface)}.project-image img{width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.3,1)}.project-image:hover img{transform:scale(1.035)}.image-arrow{position:absolute;bottom:18px;right:18px;width:36px;height:36px;background:var(--bg);color:var(--fg);display:grid;place-items:center;border-radius:50%;transition:transform .2s}.project-image:hover .image-arrow{transform:rotate(45deg)}.project:first-child{grid-column:1/-1;display:grid;grid-template-columns:1.65fr 1fr;gap:48px;align-items:center}.project:first-child .project-image{aspect-ratio:1.65}.project:first-child .project-image img{object-position:50% 58%}.project:first-child .project-meta{flex-direction:column;gap:6px;margin-top:0}.project:first-child h3{font-size:43px;max-width:300px}.project-copy{padding-top:18px}.project-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:10px}.project h3{font-family:var(--serif);font-size:35px;line-height:1.13;letter-spacing:-.02em;margin:13px 0}.literal-title{display:inline}.project-copy p{color:var(--muted);font-size:13px;line-height:1.75;max-width:430px}.project-open{display:inline-flex;gap:30px;border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:20px}.technical .project-image{background:white}.technical .project-image img{object-fit:contain;padding:25px}.experience-section,.motorsport-section{margin-top:95px;border-top:1px solid var(--line)}.experience-row{display:grid;grid-template-columns:1fr 2fr;gap:30px;padding:26px 0;border-bottom:1px solid var(--line)}.experience-date{font-size:11px;color:var(--muted);padding-top:3px}.experience-row h3{font-size:17px;letter-spacing:-.4px}.organization{color:var(--accent);font-size:12px;margin:4px 0 10px}.experience-row p{font-size:13px;color:var(--muted);max-width:550px}.motorsport-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:start}.motorsport-photo img{aspect-ratio:1.25;object-fit:cover}.motorsport-photo>span{display:block;font-size:10px;color:var(--muted);margin-top:12px}.motorsport-lead{font-family:var(--serif);font-size:44px;line-height:1.15;letter-spacing:-.025em;margin-bottom:24px}.motorsport-lead em{color:var(--accent)}.motorsport-copy>p:not(.motorsport-lead){font-size:13px;color:var(--muted);margin-bottom:16px}.skills{display:flex;flex-wrap:wrap;gap:8px 18px;border-top:1px solid var(--line);padding-top:20px;margin-top:25px}.skills span{font-size:11px;color:var(--muted)}footer{margin-top:110px;border-top:1px solid var(--line);padding:45px 0 130px}.contact-title{font-family:var(--serif);display:flex;justify-content:space-between;align-items:center;font-size:clamp(70px,12vw,170px);letter-spacing:-.05em;line-height:1.3}.contact-title>span{font-family:var(--sans);font-size:.55em;font-weight:400}.footer-bottom{margin-top:35px;display:flex;justify-content:space-between;gap:25px;font-size:11px;color:var(--muted)}.footer-bottom>div{display:flex;gap:24px}.detail-fallback .project-detail{display:none}.detail-fallback .project-detail:target{display:block;max-width:1050px;margin:50px auto;padding:50px 5%;border-top:1px solid var(--line)}dialog{width:min(960px,calc(100% - 48px));max-height:90vh;border:1px solid var(--line);background:var(--bg);color:var(--fg);padding:0;overscroll-behavior:contain}dialog::backdrop{background:#0b130fc4;backdrop-filter:blur(6px)}.modal-open{overflow:hidden}.dialog-close{position:sticky;top:0;z-index:2;width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 28px;background:var(--bg);color:var(--fg);border:0;border-bottom:1px solid var(--line);cursor:pointer;text-align:right;font-size:12px}.dialog-close span{font-size:23px;line-height:1}.project-detail{padding:40px}.detail-top{display:flex;justify-content:space-between;gap:20px}.project-detail h2{font-family:var(--serif);font-size:clamp(36px,5vw,60px);line-height:1.1;margin:20px 0 10px;letter-spacing:-.02em}.detail-date{font-size:11px;color:var(--muted);margin-bottom:28px}.detail-hero{max-height:520px;overflow:hidden;background:var(--bg)}.detail-hero>img{max-height:520px;object-fit:contain}.detail-description{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:center;padding:35px 0}.detail-description p,.project-detail>p:not(.detail-date){font-size:14px;color:var(--muted);line-height:1.8}.detail-stat{display:flex;flex-direction:column;border-left:1px solid var(--line);padding-left:25px}.detail-stat strong{font-size:38px;font-weight:500}.detail-stat span{font-size:10px;color:var(--muted)}.project-detail h3{font-size:17px;margin-bottom:10px}.detail-gallery{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}.detail-gallery img{height:300px;object-fit:contain;background:var(--bg)}figcaption{font-size:11px;margin-top:10px;color:var(--muted)}
+/* Compact layout rules retained for the responsive shared components. */
+
+[data-theme=index] .site-header{max-width:1220px;padding-top:28px;padding-bottom:28px}[data-theme=index] .header-note{display:none}[data-theme=index] .page-layout{max-width:1220px;display:grid;grid-template-columns:310px minmax(0,1fr);gap:90px;padding-top:45px}[data-theme=index] .intro{position:sticky;top:55px;align-self:start;padding-top:0}[data-theme=index] .intro-top{display:block}[data-theme=index] .intro-top .eyebrow{font-size:9px;letter-spacing:.05em}[data-theme=index] .intro-year,[data-theme=index] .intro-bottom{display:none}[data-theme=index] .index-heading{display:block}[data-theme=index] .hero-heading{display:block;margin:19px 0 0}[data-theme=index] h1{font-family:var(--sans);font-size:43px;letter-spacing:-.055em;line-height:1.1;font-weight:600}[data-theme=index] .hero-side{max-width:285px;margin-top:24px}[data-theme=index] .portrait{width:189px;height:216px;border-radius:4px;float:none;margin:0 0 20px}[data-theme=index] .hero-side p{font-size:13px}[data-theme=index] .side-nav{display:flex;flex-direction:column;gap:16px;margin:45px 0;font-size:10px;color:var(--muted)}[data-theme=index] .side-nav a{display:flex;gap:20px}[data-theme=index] .side-nav span{font-size:12px}[data-theme=index] .side-nav a[aria-current],[data-theme=index] .side-nav a:hover{color:var(--accent)}[data-theme=index] .side-footer{display:flex;flex-wrap:wrap;gap:16px;font-size:11px}[data-theme=index] .side-footer>span{width:100%;font-size:10px;color:var(--muted)}[data-theme=index] .section-heading{padding:0 0 22px}[data-theme=index] .section-heading>span{display:none}[data-theme=index] .section-heading h2{font-size:12px;font-weight:600}[data-theme=index] .projects{display:flex;flex-direction:column;gap:0}[data-theme=index] .project,[data-theme=index] .project:first-child{display:grid;grid-template-columns:128px minmax(0,1fr);gap:22px;border-top:1px solid var(--line);padding:26px 0;align-items:start}[data-theme=index] .project-image,[data-theme=index] .project:first-child .project-image{aspect-ratio:1.25;margin-top:4px;border-radius:4px}[data-theme=index] .project-copy{padding:0}[data-theme=index] .project-meta,[data-theme=index] .project:first-child .project-meta{display:block;font-size:9px}[data-theme=index] .project-meta>span:first-child{display:none}[data-theme=index] .project h3,[data-theme=index] .project:first-child h3{font-family:var(--sans);font-size:16px;font-weight:550;max-width:none;margin:6px 0 10px;line-height:1.4;letter-spacing:-.4px}[data-theme=index] .literal-title{display:inline}[data-theme=index] .project-copy p{font-size:12px}[data-theme=index] .project-open{margin-top:12px;border:none;font-size:10px;color:var(--accent)}[data-theme=index] .image-arrow{display:none}[data-theme=index] .technical .project-image img{padding:4px}[data-theme=index] .experience-section,[data-theme=index] .motorsport-section{margin-top:65px;padding-top:28px}[data-theme=index] .experience-row{grid-template-columns:105px minmax(0,1fr);gap:22px;padding:22px 0}[data-theme=index] .experience-date{font-size:9px}[data-theme=index] .experience-row h3{font-size:14px}[data-theme=index] .experience-row p{font-size:12px}[data-theme=index] .motorsport-grid{display:flex;flex-direction:column;gap:30px}[data-theme=index] .motorsport-photo img{aspect-ratio:1.7}[data-theme=index] .motorsport-lead{font-family:var(--sans);font-size:28px;font-weight:500;letter-spacing:-1px}[data-theme=index] .motorsport-lead em{font-style:normal}[data-theme=index] footer{margin-top:65px}[data-theme=index] .contact-title{font-family:var(--sans);font-size:62px;letter-spacing:-3px}[data-theme=index] .footer-bottom{flex-wrap:wrap;font-size:10px}[data-theme=index] .footer-bottom>span{width:100%}[data-theme=index] .project-detail h2{font-family:var(--sans);font-weight:500;font-size:40px}
+@media(min-width:1500px){.site-header,.page-layout{padding-left:72px;padding-right:72px}}
+@media(max-width:1000px){.hero-heading{gap:30px;grid-template-columns:1.6fr 1fr}.intro-year{display:none}.project:first-child{gap:30px}.project:first-child h3{font-size:35px}.project-meta{flex-direction:column;gap:2px}.motorsport-grid{gap:30px}[data-theme=index] .page-layout{grid-template-columns:260px minmax(0,1fr);gap:40px}[data-theme=index] h1{font-size:36px}[data-theme=index] .project,[data-theme=index] .project:first-child{grid-template-columns:95px minmax(0,1fr);gap:18px}}
+@media(max-width:700px){.site-header{padding:23px 6%}.wordmark{font-size:17px}.header-note{display:none}.site-header nav{gap:19px;font-size:11px}.page-layout{padding:0 6%}.intro{padding-top:36px}.eyebrow{font-size:9px;letter-spacing:.07em}.hero-heading{display:block;margin:27px 0 32px}h1{font-size:clamp(46px,10vw,70px)}.hero-side{max-width:100%;margin-top:28px;display:grid;grid-template-columns:110px minmax(0,1fr);column-gap:20px;align-items:start}.portrait{width:110px;height:128px;margin:3px 0 0;grid-row:1 / 3}.hero-side p{font-size:13px;max-width:350px}.hero-side .text-link{grid-column:2;margin-top:10px}.intro-bottom{font-size:9px;gap:15px}.work-scroll{gap:10px}.section-heading{padding:27px 0 20px}.section-heading>span{display:none}.projects{display:block}.project,.project:first-child{display:block;margin-bottom:39px}.project:first-child .project-image{aspect-ratio:1.4}.project:first-child .project-meta{margin-top:0;flex-direction:row}.project-meta{flex-direction:row;font-size:9px}.project-copy{padding-top:15px}.project h3,.project:first-child h3{font-size:31px;max-width:none;margin:10px 0}.project-copy p{font-size:12px}.project-open{margin-top:13px}.project-image{aspect-ratio:1.4}.experience-section,.motorsport-section{margin-top:55px}.experience-row{grid-template-columns:1fr;gap:7px;padding:23px 0}.experience-date{font-size:10px}.experience-row h3{font-size:16px}.motorsport-grid{grid-template-columns:1fr}.motorsport-lead{font-size:37px}.motorsport-photo img{aspect-ratio:1.45}footer{margin-top:60px;padding-top:30px;padding-bottom:125px}.footer-bottom{flex-wrap:wrap;gap:18px;margin-top:24px}.footer-bottom>span{width:100%}.contact-title{font-size:80px}.detail-fallback .project-detail:target{padding:30px 6%}.project-detail{padding:25px}.detail-description{grid-template-columns:1fr;gap:20px;padding:25px 0}.detail-stat{padding-left:15px}.detail-gallery{grid-template-columns:1fr}.detail-gallery img{height:auto;max-height:420px}dialog{width:calc(100% - 20px);max-height:93vh}.dialog-close{padding:12px 25px}.project-detail h2{font-size:35px}.detail-top .eyebrow{font-size:8px}
+[data-theme=index] .site-header{padding:23px 6%}[data-theme=index] .page-layout{display:block;padding:24px 6% 0}[data-theme=index] .intro{position:static}[data-theme=index] h1{font-size:43px}[data-theme=index] .hero-side{display:grid;max-width:100%;margin-top:24px}[data-theme=index] .portrait{width:110px;height:128px;margin:0}[data-theme=index] .hero-side p{max-width:none}[data-theme=index] .hero-side .text-link{margin-top:10px}[data-theme=index] .side-nav{flex-direction:row;gap:24px;margin:32px 0;flex-wrap:wrap}[data-theme=index] .side-nav a{gap:0}[data-theme=index] .side-nav a{font-size:0}[data-theme=index] .side-nav span{font-size:10px}[data-theme=index] .side-footer{display:none}[data-theme=index] .work-section{margin-top:35px}[data-theme=index] .project,[data-theme=index] .project:first-child{grid-template-columns:100px minmax(0,1fr);gap:17px;padding:23px 0;margin-bottom:0}[data-theme=index] .project:first-child .project-meta{margin:0}[data-theme=index] .project h3,[data-theme=index] .project:first-child h3{font-size:14px}[data-theme=index] .project-copy p{font-size:11px}[data-theme=index] .experience-row{grid-template-columns:1fr;gap:5px}[data-theme=index] .experience-section,[data-theme=index] .motorsport-section{margin-top:45px}[data-theme=index] .project-detail h2{font-size:30px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* Keep the complete engineering drawings visible in cards and detail views. */
+.technical .project-image img{object-fit:contain;padding:16px}
+.project-detail.technical .detail-hero{background:var(--bg)}
+.project-detail.technical .detail-hero>img{width:100%;height:auto;max-height:520px;object-fit:contain}
+@media(max-width:700px){.project-detail.technical .detail-hero>img{max-height:380px}}
+
+/* After Hours gallery layout with Index typography and light palette. */
+[data-theme=night] .night-heading{display:block}
+[data-theme=night] .intro{padding-top:42px}
+[data-theme=night] h1{font-family:var(--sans);font-size:clamp(95px,13vw,188px);font-weight:550;line-height:.91;letter-spacing:-.075em}
+[data-theme=night] h1 em{font-style:normal}
+[data-theme=night] .hero-heading{grid-template-columns:1.7fr 1fr;align-items:end;margin:40px 0 60px}
+[data-theme=night] .hero-side{padding-bottom:8px}
+[data-theme=night] .portrait{width:211px;height:243px;margin-bottom:25px;border-radius:50%}
+[data-theme=night] .project:first-child{grid-column:auto;display:block}
+[data-theme=night] .project:first-child .project-image{aspect-ratio:1.45}
+[data-theme=night] .project:first-child .project-meta{flex-direction:row}
+[data-theme=night] .project h3,[data-theme=night] .project:first-child h3{font-family:var(--sans);font-size:27px;max-width:none;letter-spacing:-.8px;margin:15px 0 10px}
+[data-theme=night] .projects{gap:60px 32px}
+[data-theme=night] .project-meta{font-size:9px}
+[data-theme=night] .literal-title{display:inline}
+[data-theme=night] .motorsport-lead{font-family:var(--sans);font-size:43px;letter-spacing:-1.6px}
+[data-theme=night] .motorsport-lead em{font-style:normal}
+[data-theme=night] .contact-title{font-family:var(--sans);font-weight:500;letter-spacing:-.07em}
+[data-theme=night] .project-detail h2{font-family:var(--sans);font-weight:500;font-size:45px}
+@media(max-width:1000px){[data-theme=night] .project:first-child .project-meta{flex-direction:column}}
+@media(max-width:700px){
+ [data-theme=night] .intro{padding-top:30px}
+ [data-theme=night] .hero-heading{display:block;margin:30px 0}
+ [data-theme=night] h1{font-size:clamp(88px,21vw,135px)}
+ [data-theme=night] .hero-side{padding:0;margin-top:30px}
+ [data-theme=night] .portrait{width:110px;height:128px;margin:0}
+ [data-theme=night] .project:first-child .project-meta{flex-direction:row}
+ [data-theme=night] .project h3,[data-theme=night] .project:first-child h3{font-size:24px}
+ [data-theme=night] .project-detail h2{font-size:32px}
+ [data-theme=night] .motorsport-lead{font-size:35px}
+}
+
+/* Direct, understated contact information. */
+#contact{padding:36px 0 44px;color:#182028;border-color:#fff}
+#contact h2{font-family:var(--sans);font-size:22px;font-weight:500;letter-spacing:-.4px;margin-bottom:20px}
+.contact-links{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px}
+.contact-links a{text-decoration:underline;text-underline-offset:4px;text-decoration-color:#59636e}
+.contact-links a:hover{text-decoration-color:currentColor}
+.footer-credit{font-size:11px;margin-top:36px;color:#252b31}
+@media(max-width:700px){.contact-links{flex-direction:column;align-items:flex-start;gap:14px}#contact{padding-bottom:32px}}
+
+/* Clear identity, larger section headings, and room for a longer bio. */
+.header-identity{display:inline-flex;align-items:center;font-size:11px;line-height:1.5;letter-spacing:.07em}
+.header-identity .status-dot{flex:none}
+.intro-top{justify-content:flex-end}
+[data-theme=night] h1{font-size:clamp(80px,10.5vw,156px)}
+[data-theme=night] .hero-heading{grid-template-columns:1.35fr 1fr;gap:clamp(32px,5vw,72px)}
+[data-theme=night] .hero-side{width:100%;max-width:440px}
+.bio{max-width:44ch}
+.bio p+p{margin-top:16px}
+.section-heading h2,#contact h2{font-size:32px;font-weight:550;letter-spacing:-.7px;line-height:1.2}
+@media(max-width:700px){
+ .site-header{flex-wrap:wrap;gap:18px}
+ .header-identity{font-size:9px;letter-spacing:.04em}
+ .site-header nav{gap:18px}
+ [data-theme=night] h1{font-size:clamp(76px,18vw,126px)}
+ [data-theme=night] .hero-side{display:block;max-width:none}
+ [data-theme=night] .portrait{margin-bottom:20px;grid-row:auto}
+ .hero-side p{max-width:none}
+ .bio{max-width:44ch}
+ .section-heading h2,#contact h2{font-size:26px}
+}
+
+/* Portrait and name on the left; outdoor photo and bio on the right. */
+[data-theme=night] .hero-heading{align-items:start;margin-top:20px}
+.hero-identity{min-width:0}
+.bio-photo{width:100%;height:auto;border-radius:4px 4px 0 0;margin-bottom:24px;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%)}
+@media(max-width:700px){
+ [data-theme=night] .hero-heading{margin-top:20px}
+ [data-theme=night] .hero-side{margin-top:36px}
+ .bio-photo{margin-bottom:20px}
+}
+
+/* Distinct racing and cinematic builds inside the FPV project. */
+.drone-section{margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.project-detail .drone-section h3{font-size:25px;line-height:1.25;margin-bottom:22px;letter-spacing:-.5px}
+.drone-section .detail-gallery{margin-top:0}
+.cinematic-cad{background:var(--bg)}
+@media(max-width:700px){.project-detail .drone-section h3{font-size:22px}.drone-section{margin-top:28px;padding-top:24px}}
+
+.detail-description > p:only-child{grid-column:1 / -1}
+
+/* Cliffside title image, with a wider landscape composition on desktop. */
+@media(min-width:701px){
+ [data-theme=night] .hero-heading{grid-template-columns:1fr 1.25fr}
+ [data-theme=night] .hero-side{max-width:580px;padding-top:60px}
+}
+
+/* Bold body-copy trial; preserve heading and navigation weights. */
+p:not(.motorsport-lead),
+.project-meta,
+.experience-date,
+.organization,
+.intro-bottom,
+.motorsport-photo > span,
+figcaption,
+.detail-stat span,
+.contact-links,
+.footer-credit{font-weight:700}
+
+/* Slightly stronger contrast and size for the bold body copy. */
+.hero-side p,.project-copy p,.experience-row p,
+.motorsport-copy > p:not(.motorsport-lead),
+.project-detail p,.detail-stat span,
+.project-meta,.experience-date,.organization,.intro-bottom,
+.motorsport-photo > span,figcaption{color:#50565d}
+.hero-side p{font-size:16px}
+.project-copy p,.experience-row p,.motorsport-copy > p:not(.motorsport-lead){font-size:14px}
+.project-detail p:not(.detail-date),.detail-description p{font-size:15px}
+[data-theme=night] .project-meta{font-size:10px}
+.experience-date,.detail-date,.intro-bottom,figcaption,.footer-credit{font-size:12px}
+.organization{font-size:13px}
+.motorsport-photo > span,.detail-stat span{font-size:11px}
+.contact-links{font-size:16px;color:#11191f}
+.footer-credit{color:#1e242a}
+@media(max-width:700px){
+ .hero-side p{font-size:14px}
+ .project-copy p{font-size:13px}
+ .experience-date{font-size:11px}
+ .intro-bottom{font-size:10px}
+}
+
+.motorsport-car{margin-top:28px}
+.motorsport-car img{aspect-ratio:1.25;object-fit:cover;object-position:center 85%}
+
+.motorsport-track{margin-top:28px}
+.motorsport-photo .motorsport-track img{aspect-ratio:auto;height:auto}
+
+.motorsport-helmet{margin-top:28px}

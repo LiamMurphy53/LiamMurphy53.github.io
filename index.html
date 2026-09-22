@@ -1,723 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="night">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Liam Murphy, Aerospace Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg:      #07090d;
-  --bg2:     #0b1018;
-  --surface: #101820;
-  --surf2:   #16222e;
-  --border:  rgba(255,255,255,0.07);
-  --border2: rgba(255,255,255,0.12);
-  --accent:  #e8732a;
-  --accent2: #f5a642;
-  --text:    #dce6f0;
-  --muted:   #536070;
-  --dim:     #8a9daf;
-}
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg); color: var(--text);
-  font-family: 'DM Sans', sans-serif; font-weight: 400;
-  line-height: 1.7; overflow-x: hidden;
-}
-body::before {
-  content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  background-size: 300px; opacity: 0.5;
-}
-
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.1rem 3.5rem;
-  background: rgba(7,9,13,0.88); backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.2rem;
-  letter-spacing: 0.04em; color: var(--text); text-decoration: none; text-transform: uppercase;
-}
-.nav-logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--accent); }
-.nav-cta {
-  font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--accent); text-decoration: none;
-  border: 1px solid var(--accent); padding: 0.45rem 1.2rem; transition: background 0.2s, color 0.2s;
-}
-.nav-cta:hover { background: var(--accent); color: var(--bg); }
-
-/* HERO */
-#hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  align-items: center;
-  padding: 9rem 3.5rem 6rem;
-  position: relative; overflow: hidden; gap: 3rem;
-}
-.hero-grid {
-  position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-.hero-glow {
-  position: absolute; top: 20%; right: -10%; width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(232,115,42,0.08) 0%, transparent 70%); pointer-events: none;
-}
-.hero-content {
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative; z-index: 1;
-}
-.hero-eyebrow {
-  font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem;
-  display: flex; align-items: center; gap: 0.9rem; animation: fadeUp 0.7s ease both;
-}
-.hero-eyebrow::before { content: ''; display: inline-block; width: 36px; height: 1px; background: var(--accent); }
-h1 {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
-  font-size: clamp(3.2rem, 6vw, 6rem); line-height: 0.96;
-  letter-spacing: 0.01em; text-transform: uppercase;
-  max-width: 680px; margin-bottom: 1.8rem; animation: fadeUp 0.7s 0.1s ease both;
-}
-h1 em { font-style: normal; color: var(--accent); }
-.hero-sub {
-  font-size: 1rem; color: var(--dim); max-width: 480px;
-  line-height: 1.8; margin-bottom: 2.8rem; font-weight: 300; animation: fadeUp 0.7s 0.2s ease both;
-}
-.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
-.btn-primary {
-  font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em;
-  text-transform: uppercase; background: var(--accent); color: var(--bg);
-  padding: 0.9rem 2rem; text-decoration: none; font-weight: 700; transition: background 0.2s, transform 0.15s;
-}
-.btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
-.btn-outline {
-  font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em;
-  text-transform: uppercase; border: 1px solid var(--border2); color: var(--dim);
-  padding: 0.9rem 2rem; text-decoration: none; transition: border-color 0.2s, color 0.2s;
-}
-.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-/* HERO PHOTOS — staggered overlap layout */
-.hero-photos {
-  position: relative; z-index: 1;
-  height: 600px;
-  animation: fadeUp 0.7s 0.35s ease both;
-}
-/* formula car image: full background, left-aligned, taller */
-.hero-photo-bg {
-  position: absolute;
-  top: 60px; left: 0;
-  width: 88%;
-  height: 480px;
-  object-fit: cover;
-  object-position: center center;
-  filter: grayscale(20%) brightness(0.85);
-  transition: filter 0.3s;
-  border: 1px solid var(--border);
-}
-.hero-photo-bg:hover { filter: grayscale(0%) brightness(1); }
-/* headshot: shifted further left so face clears the car */
-.hero-photo-fg {
-  position: absolute;
-  top: 0; left: -30%;
-  width: 58%;
-  height: 380px;
-  object-fit: cover;
-  object-position: center top;
-  filter: grayscale(10%) brightness(0.9);
-  transition: filter 0.3s;
-  border: 1px solid var(--border2);
-  box-shadow: -8px 8px 40px rgba(0,0,0,0.6);
-}
-.hero-photo-fg:hover { filter: grayscale(0%) brightness(1); }
-.hero-photo-label {
-  position: absolute; bottom: 0; left: 0;
-  font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--muted);
-}
-
-/* SHARED */
-.section-wrap { max-width: 960px; margin: 0 auto; padding: 6rem 3.5rem; }
-.section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 3.5rem; }
-.section-num { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--accent); letter-spacing: 0.1em; }
-.section-title {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-  font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: 0.04em; text-transform: uppercase;
-}
-.section-line { flex: 1; height: 1px; background: var(--border); }
-
-/* ABOUT */
-#about { background: var(--bg2); }
-.about-grid { display: grid; grid-template-columns: 280px 1fr 1fr; gap: 3.5rem; align-items: start; }
-.about-photos-wrap { display: flex; flex-direction: column; gap: 0.9rem; }
-.about-photo-top {
-  width: 100%; aspect-ratio: 4/3; object-fit: cover;
-  display: block; filter: grayscale(15%) brightness(0.88); transition: filter 0.3s; border: 1px solid var(--border2);
-}
-.about-photo-top:hover { filter: grayscale(0%) brightness(1); }
-.about-photo-bottom {
-  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center center;
-  display: block; filter: grayscale(15%) brightness(0.88); transition: filter 0.3s; border: 1px solid var(--border);
-}
-.about-photo-bottom:hover { filter: grayscale(0%) brightness(1); }
-.about-text p { color: var(--dim); font-size: 0.97rem; font-weight: 300; margin-bottom: 1.2rem; line-height: 1.85; }
-.about-cards { display: flex; flex-direction: column; gap: 1rem; }
-.about-card {
-  background: var(--surface); border: 1px solid var(--border);
-  padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1.1rem; transition: border-color 0.2s;
-}
-.about-card:hover { border-color: var(--accent); }
-.about-card-icon {
-  width: 38px; height: 38px; background: rgba(232,115,42,0.1); border: 1px solid rgba(232,115,42,0.2);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.95rem;
-}
-.about-card-val { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.35rem; line-height: 1; letter-spacing: 0.02em; }
-.about-card-val span { color: var(--accent); }
-.about-card-desc { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
-
-/* EXPERIENCE */
-#experience { background: var(--bg); }
-.exp-list { display: flex; flex-direction: column; }
-.exp-item {
-  display: grid; grid-template-columns: 200px 1fr;
-  gap: 0 2.5rem; padding: 2.4rem 0; border-top: 1px solid var(--border);
-}
-.exp-item:last-child { border-bottom: 1px solid var(--border); }
-.exp-date { font-family: 'Space Mono', monospace; font-size: 0.63rem; letter-spacing: 0.08em; color: var(--muted); padding-top: 0.3rem; line-height: 1.7; }
-.exp-date strong { display: block; color: var(--accent); font-size: 0.68rem; margin-bottom: 0.2rem; }
-.exp-role { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 0.2rem; }
-.exp-org { font-family: 'Space Mono', monospace; font-size: 0.66rem; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 0.9rem; }
-.exp-body { color: var(--dim); font-size: 0.92rem; font-weight: 300; line-height: 1.8; margin-bottom: 1rem; padding-left: 1.1rem; }
-.exp-body li { margin-bottom: 0.35rem; }
-.exp-img { width: 75%; max-width: 360px; aspect-ratio: 5/4; height: auto; object-fit: cover; display: block; margin-bottom: 1.2rem; filter: grayscale(25%) brightness(0.8); transition: filter 0.3s; }
-.exp-item:hover .exp-img { filter: grayscale(5%) brightness(0.95); }
-.tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.tag {
-  font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--muted); border: 1px solid var(--border);
-  padding: 0.28rem 0.65rem; transition: border-color 0.2s, color 0.2s;
-}
-.tag:hover { border-color: var(--accent); color: var(--accent); }
-
-/* MOTORSPORT */
-#motorsport { background: var(--bg2); }
-.motorsport-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-.motorsport-headline {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
-  font-size: clamp(2rem, 3.5vw, 2.8rem); letter-spacing: 0.02em; text-transform: uppercase;
-  line-height: 1.05; margin-bottom: 1.4rem;
-}
-.motorsport-headline em { font-style: normal; color: var(--accent); }
-.motorsport-body { color: var(--dim); font-size: 0.95rem; font-weight: 300; line-height: 1.9; margin-bottom: 1.2rem; }
-.motorsport-stat-row { display: flex; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
-.motorsport-stat {
-  background: var(--surface); border: 1px solid var(--border);
-  padding: 1.1rem 1.4rem; flex: 1; min-width: 110px; transition: border-color 0.2s;
-}
-.motorsport-stat:hover { border-color: var(--accent); }
-.motorsport-stat-val { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2rem; line-height: 1; color: var(--accent); }
-.motorsport-stat-label { font-family: 'Space Mono', monospace; font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
-.motorsport-photos { display: flex; flex-direction: column; gap: 1rem; }
-.motorsport-photo-main { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; filter: grayscale(15%) brightness(0.88); transition: filter 0.3s; border: 1px solid var(--border2); }
-.motorsport-photo-main:hover { filter: grayscale(0%) brightness(1); }
-.motorsport-photo-secondary { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top; display: block; filter: grayscale(15%) brightness(0.85); transition: filter 0.3s; border: 1px solid var(--border); }
-.motorsport-photo-secondary:hover { filter: grayscale(0%) brightness(1); }
-
-/* PROJECTS */
-#projects { background: var(--bg); }
-.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--border); }
-.project-card {
-  background: var(--bg); transition: background 0.2s;
-  position: relative; overflow: hidden; display: flex; flex-direction: column;
-}
-.project-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; z-index: 1;
-}
-.project-card:hover { background: var(--surface); }
-.project-card:hover::before { transform: scaleX(1); }
-.project-img { width: 100%; height: 200px; object-fit: cover; display: block; filter: grayscale(30%) brightness(0.85); transition: filter 0.3s; }
-.project-card:hover .project-img { filter: grayscale(10%) brightness(0.95); }
-.project-body { padding: 1.8rem 2.2rem 2.2rem; flex: 1; display: flex; flex-direction: column; }
-.project-cat { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
-.project-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 0.8rem; line-height: 1.15; }
-.project-desc { color: var(--dim); font-size: 0.88rem; font-weight: 300; line-height: 1.8; margin-bottom: 1.1rem; }
-.project-details { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.3rem; flex: 1; }
-.project-detail-row { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.84rem; color: var(--dim); font-weight: 300; }
-.project-detail-row::before { content: '→'; color: var(--accent); font-family: 'Space Mono', monospace; font-size: 0.68rem; flex-shrink: 0; margin-top: 0.22rem; }
-
-/* SKILLS */
-#skills { background: var(--bg2); }
-.skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 4rem; }
-.skill-group-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border); }
-.skill-list { display: flex; flex-wrap: wrap; gap: 0.55rem; }
-.skill-pill { font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.04em; color: var(--dim); border: 1px solid var(--border); padding: 0.45rem 0.85rem; transition: all 0.2s; cursor: default; }
-.skill-pill:hover { background: var(--surf2); color: var(--text); border-color: var(--border2); }
-.skill-pill.hl { border-color: rgba(232,115,42,0.3); color: var(--accent); }
-.skill-pill.hl:hover { background: rgba(232,115,42,0.1); }
-
-/* CONTACT */
-#contact { background: var(--surface); }
-.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-.contact-headline { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4vw, 3.2rem); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.05; margin-bottom: 1.2rem; }
-.contact-headline em { font-style: normal; color: var(--accent); }
-.contact-body { color: var(--dim); font-size: 0.93rem; font-weight: 300; line-height: 1.85; }
-.contact-right { display: flex; flex-direction: column; gap: 1rem; }
-.contact-link { display: flex; align-items: center; gap: 1.2rem; background: var(--surf2); border: 1px solid var(--border); padding: 1.1rem 1.4rem; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
-.contact-link:hover { border-color: var(--accent); background: var(--bg2); }
-.contact-link-icon { width: 36px; height: 36px; background: rgba(232,115,42,0.1); border: 1px solid rgba(232,115,42,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.85rem; font-family: 'Space Mono', monospace; color: var(--accent); font-weight: 700; }
-.contact-link-label { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
-.contact-link-val { font-size: 0.88rem; color: var(--text); }
-
-/* FOOTER */
-footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2rem 3.5rem; display: flex; justify-content: space-between; align-items: center; }
-.footer-copy { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--muted); }
-.footer-right { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; color: var(--muted); }
-.footer-right span { color: var(--accent); }
-
-/* ANIMATIONS */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* RESPONSIVE */
-@media (max-width: 860px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 2rem; }
-  .hero-photos { height: 300px; }
-  .section-wrap { padding: 4rem 1.5rem; }
-  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .motorsport-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .contact-inner, .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
-  footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
-}
-</style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Liam Murphy — aerospace engineering at CU Boulder. Projects in aerodynamics, drones, composites, and motorsport.">
+<meta name="theme-color" content="#e7e8ea">
+<title>Liam Murphy — Aerospace &amp; Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"><script defer src="assets/site.js"></script>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#hero">Liam<span>.</span>Murphy</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#motorsport">Motorsport</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a class="nav-cta" href="#contact">Hire Me</a>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">CU Boulder · Aerospace Engineering · Class of 2027</div>
-    <h1>Building high-performance systems for <em>aerospace and motorsport</em>.</h1>
-    <p class="hero-sub">I design, analyze, and build aerodynamic systems, composite components, and drones. Aerospace Engineering at CU Boulder, graduating May 2027.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="#projects">View Projects →</a>
-      <a class="btn-outline" href="resume.pdf" target="_blank" rel="noopener">View Résumé ↗</a>
-    </div>
+<a class="skip-link" href="#work">Skip to projects</a>
+<header class="site-header"><a class="header-identity eyebrow" href="#top" aria-label="Aerospace Engineering at CU Boulder, home"><span class="status-dot" aria-hidden="true"></span>Aerospace Engineering · CU Boulder</a><nav aria-label="Main navigation"><a href="#work">Projects</a><a href="#experience">Experience</a><a href="#motorsport">Motorsport</a><a href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a></nav></header>
+<div class="page-layout" id="top">
+<aside class="intro">
+ <div class="hero-heading"><div class="hero-identity"><img class="portrait" src="assets/photos/headshot.webp" alt="Liam Murphy" width="96" height="110"><h1><span class="night-heading">Liam<br><em>Murphy</em></span></h1></div>
+ <div class="hero-side"><img class="bio-photo" src="assets/photos/hero-cliffside.webp" alt="Liam at a stone overlook beside the coast" width="1600" height="900" decoding="async"><div class="bio" id="about"><p>Senior aerospace student at the University of Colorado Boulder. I design/build challenging projects and I have a passion for anything fast.</p></div></div></div>
+ <div class="intro-bottom"><span>Aerodynamics. Drones. Motorsport.</span></div>
+ <nav class="side-nav" aria-label="Section navigation"><a href="#work">01 <span>Projects</span></a><a href="#experience">02 <span>Experience</span></a><a href="#motorsport">03 <span>Motorsport</span></a><a href="#contact">04 <span>Get in touch</span></a></nav>
+ <div class="side-footer"><a href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a><a href="https://www.linkedin.com/in/LiamMur" target="_blank" rel="noopener">LinkedIn ↗</a><span>Boulder, CO · Graduating May 2027</span></div>
+</aside>
+<main>
+<section class="work-section" id="work"><div class="section-heading"><h2>Projects</h2></div><div class="projects"><article class="project " id="aerodynamics">
+ <a class="project-image" href="#detail-aerodynamics" data-project="aerodynamics" aria-label="Explore Formula SAE aerodynamics"><img src="assets/photos/formula.webp" alt="CU Boulder Formula SAE car" loading="lazy" decoding="async" ><span class="image-arrow" aria-hidden="true">↗</span></a>
+ <div class="project-copy"><div class="project-meta"><span>Aerodynamics / Composites</span><span>2024 — Present</span></div>
+ <h3><a href="#detail-aerodynamics" data-project="aerodynamics"><span class="literal-title">Formula SAE aerodynamics</span></a></h3>
+ <p>The team’s first ground-effect undertray. From aerodynamic design to carbon composite manufacturing and vehicle testing.</p><a class="text-link project-open" href="#detail-aerodynamics" data-project="aerodynamics">Explore project <span aria-hidden="true">↗</span></a></div></article>
+<article class="project " id="fpv">
+ <a class="project-image" href="#detail-fpv" data-project="fpv" aria-label="Explore FPV racing &amp; cinematic drones"><img src="assets/photos/small-drone-frame.webp" alt="Built micro-quadcopter frame on a workbench" loading="lazy" decoding="async" ><span class="image-arrow" aria-hidden="true">↗</span></a>
+ <div class="project-copy"><div class="project-meta"><span>Drone Design / Prototyping</span><span>2025 — Present</span></div>
+ <h3><a href="#detail-fpv" data-project="fpv"><span class="literal-title">FPV racing & cinematic drones</span></a></h3>
+ <p>Iteratively designing small racing quadcopters and a custom 5-inch cinematic drone.</p><a class="text-link project-open" href="#detail-fpv" data-project="fpv">Explore project <span aria-hidden="true">↗</span></a></div></article>
+<article class="project technical" id="launcher">
+ <a class="project-image" href="#detail-launcher" data-project="launcher" aria-label="Explore High-speed drone launcher"><img src="assets/photos/launcher.webp" alt="CAD model of the portable drone launcher" loading="lazy" decoding="async" ><span class="image-arrow" aria-hidden="true">↗</span></a>
+ <div class="project-copy"><div class="project-meta"><span>CU Boulder SuperSpeed / Launch Systems</span><span>2026 — Present</span></div>
+ <h3><a href="#detail-launcher" data-project="launcher"><span class="literal-title">High-speed drone launcher</span></a></h3>
+ <p>A portable bungee launcher for an electric ducted fan drone.</p><a class="text-link project-open" href="#detail-launcher" data-project="launcher">Explore project <span aria-hidden="true">↗</span></a></div></article>
+<article class="project technical" id="test-stand">
+ <a class="project-image" href="#detail-test-stand" data-project="test-stand" aria-label="Explore Quadcopter motor test stand"><img src="assets/photos/testbench.webp" alt="CAD model of the motor test stand and S-type load cell" width="890" height="1160" loading="lazy" decoding="async"><span class="image-arrow" aria-hidden="true">↗</span></a>
+ <div class="project-copy"><div class="project-meta"><span>Test Equipment / Drone Development</span><span>2026 — Present</span></div>
+ <h3><a href="#detail-test-stand" data-project="test-stand"><span class="literal-title">Quadcopter motor test stand</span></a></h3>
+ <p>A brushless DC motor test stand designed to turn axial thrust measurements into better drone design decisions.</p><a class="text-link project-open" href="#detail-test-stand" data-project="test-stand">Explore project <span aria-hidden="true">↗</span></a></div></article>
+<article class="project technical" id="robotics">
+ <a class="project-image" href="#detail-robotics" data-project="robotics" aria-label="Explore Lidar mapping quadcopter"><img src="assets/photos/robotics-mapping.webp" alt="CAD model of the robotics quadcopter and its lidar coverage pattern" width="1600" height="839" loading="lazy" decoding="async"><span class="image-arrow" aria-hidden="true">↗</span></a>
+ <div class="project-copy"><div class="project-meta"><span>CU Boulder Robotics / Lidar</span><span>2026 — Present</span></div>
+ <h3><a href="#detail-robotics" data-project="robotics"><span class="literal-title">Lidar mapping quadcopter</span></a></h3>
+ <p>A small quadcopter with a lidar array for mapping and relaying enemy robot positions in real time.</p><a class="text-link project-open" href="#detail-robotics" data-project="robotics">Explore project <span aria-hidden="true">↗</span></a></div></article>
+<article class="project " id="vex">
+ <a class="project-image" href="#detail-vex" data-project="vex" aria-label="Explore VEX competition robotics"><img src="assets/photos/robot.webp" alt="VEX robotics team at a competition" loading="lazy" decoding="async" ><span class="image-arrow" aria-hidden="true">↗</span></a>
+ <div class="project-copy"><div class="project-meta"><span>Mechanical Design / Team Leadership</span><span>2020 — 2023</span></div>
+ <h3><a href="#detail-vex" data-project="vex"><span class="literal-title">VEX competition robotics</span></a></h3>
+ <p>Leading mechanical design through competition seasons with Team 4154X. VEX Worlds finalist in 2022.</p><a class="text-link project-open" href="#detail-vex" data-project="vex">Explore project <span aria-hidden="true">↗</span></a></div></article></div></section>
+<section class="experience-section" id="experience"><div class="section-heading"><h2>Experience</h2><a class="text-link" href="resume.pdf" target="_blank" rel="noopener">Full résumé ↗</a></div><article class="experience-row"><div class="experience-date">Sep 2024 — Present</div><div><h3>FSAE Aerodynamicist / Test Engineer</h3><div class="organization">CU Boulder Racing Team</div><p>Aerodynamic design, carbon composite manufacturing, and suspension potentiometer testing to validate CFD predictions.</p></div></article><article class="experience-row"><div class="experience-date">Aug 2026 — Present</div><div><h3>Launch System Engineer</h3><div class="organization">CU Boulder SuperSpeed</div><p>Portable bungee launcher design for a high-speed EDF drone.</p></div></article><article class="experience-row"><div class="experience-date">Apr 2026 — Present</div><div><h3>Surveillance Drone Engineer</h3><div class="organization">CU Boulder Robotics</div><p>Quadcopter design and lidar coverage for real-time robot mapping.</p></div></article><article class="experience-row"><div class="experience-date">Aug 2020 — Jun 2023</div><div><h3>Design Lead</h3><div class="organization">VEX Robotics · Team 4154X</div><p>Mechanical design for competition. VEX Worlds finalist, 2022.</p></div></article></section>
+<section class="motorsport-section" id="motorsport"><div class="section-heading"><h2>Motorsport</h2></div><div class="motorsport-grid"><div class="motorsport-photo"><img src="assets/photos/endurTeam.webp" alt="Liam with the CU Boulder endurance racing team and their car" loading="lazy"><span>CU Boulder Endurance Team · G2 Motorsports Park</span><figure class="motorsport-track"><img src="assets/photos/308.webp" alt="CU Boulder endurance race car cornering on track" width="1600" height="1071" loading="lazy" decoding="async"><figcaption>On track at High Plains Raceway</figcaption></figure><figure class="motorsport-track"><img src="assets/photos/g2.webp" alt="CU Boulder endurance race car outside G2 Motorsports Park" width="1600" height="1200" loading="lazy" decoding="async"><figcaption>G2 Motorsports Park</figcaption></figure></div><div class="motorsport-copy"><p class="motorsport-lead">Endurance racing</p><p>I've had the incredible opportunity to compete in a couple race weekends with the CU Boulder Racing Team's Endurance division. As an engineer with a passion for motorsport, it's like a dream come true. I've raced with the team at G2 Motorsports Park in Texas and at High Plains Raceway in Colorado.</p><figure class="motorsport-car"><img src="assets/photos/enduranceCar.webp" alt="CU Boulder endurance race car in the paddock at night" width="1200" height="1600" loading="lazy" decoding="async"><figcaption>CU Boulder car 308 (303)</figcaption></figure><figure class="motorsport-helmet"><img src="assets/photos/helmet2.webp" alt="Liam wearing his racing helmet beside the endurance car at High Plains Raceway" width="1200" height="1600" loading="lazy" decoding="async"><figcaption>Test day at High Plains Raceway</figcaption></figure></div></div></section>
+<footer id="contact" aria-labelledby="contact-heading">
+  <h2 id="contact-heading">Contact</h2>
+  <div class="contact-links">
+    <a href="mailto:murli01quebo@gmail.com">murli01quebo@gmail.com</a>
+    <a href="https://www.linkedin.com/in/LiamMur" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
   </div>
-  <div class="hero-photos">
-    <img class="hero-photo-bg" src="images/formulaRainbow.png" alt="Formula car in the rain"/>
-    <img class="hero-photo-fg" src="images/headshot.png" alt="Liam Murphy"/>
-    <div class="hero-photo-label">CU Boulder Racing · FSAE</div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-wrap">
-    <div class="section-label reveal">
-      <span class="section-num">01</span>
-      <h2 class="section-title">About</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-grid">
-      <div class="about-photos-wrap reveal">
-        <img class="about-photo-top" src="images/mclaren.png" alt="McLaren"/>
-        <img class="about-photo-bottom" src="images/wing.png" alt="Aero wing"/>
-      </div>
-      <div class="about-text reveal">
-        <p>I'm an Aerospace Engineering student at CU Boulder with a hands-on focus across aerodynamics, composites manufacturing, CAD, and systems validation. I care about building things that work under real conditions, not just in simulation.</p>
-        <p>My work spans Formula SAE aerodynamics, a high-speed drone launch system with CU Boulder SuperSpeed, and robotics at CU Boulder. My personal projects include FPV racing and cinematic drones and a quadcopter motor test stand.</p>
-        <p>I combine aerodynamic design, CAD, and composites manufacturing with hands-on testing, using simulation and test data to guide design improvements.</p>
-      </div>
-      <div class="about-cards reveal">
-        <div class="about-card">
-          <div class="about-card-icon">🎓</div>
-          <div>
-            <div class="about-card-val">May <span>2027</span></div>
-            <div class="about-card-desc">Expected Graduation · Aerospace Eng.</div>
-          </div>
-        </div>
-        <div class="about-card">
-          <div class="about-card-icon">📍</div>
-          <div>
-            <div class="about-card-val">Boulder<span>,</span> CO</div>
-            <div class="about-card-desc">University of Colorado Boulder</div>
-          </div>
-        </div>
-        <div class="about-card">
-          <div class="about-card-icon">🏎</div>
-          <div>
-            <div class="about-card-val">CU <span>FSAE</span></div>
-            <div class="about-card-desc">Aerodynamicist &amp; Test Engineer</div>
-          </div>
-        </div>
-        <div class="about-card">
-          <div class="about-card-icon">🏁</div>
-          <div>
-            <div class="about-card-val">Race <span>Driver</span></div>
-            <div class="about-card-desc">CU Boulder Endurance Team</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-wrap">
-    <div class="section-label reveal">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Experience</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="exp-list">
-      <div class="exp-item reveal">
-        <div class="exp-date"><strong>Sep 2024 - Present</strong>CU Boulder Racing Team<br/>Boulder, CO</div>
-        <div>
-          <img class="exp-img" src="images/formula.png" alt="CU Boulder Formula SAE car"/>
-          <div class="exp-role">FSAE Aerodynamicist / Test Engineer</div>
-          <div class="exp-org">CU Boulder Racing Team</div>
-          <ul class="exp-body"><li>Designed the team’s first ground-effect-driven undertray for 30% increased downforce with a small drag penalty.</li><li>Manufactured carbon composite aerodynamic elements and integrated them into the final vehicle assembly.</li><li>Conducting suspension potentiometer testing to verify CFD-predicted downforce and establish a validation platform for future aerodynamic package and chassis iterations.</li></ul>
-          <div class="tag-row"><span class="tag">CFD</span><span class="tag">Aerodynamics</span><span class="tag">Composites</span><span class="tag">Vehicle Testing</span></div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-date"><strong>Aug 2026 - Present</strong>CU Boulder SuperSpeed<br/>Boulder, CO</div>
-        <div>
-
-          <div class="exp-role">Launch System Engineer</div>
-          <div class="exp-org">CU Boulder SuperSpeed</div>
-          <ul class="exp-body"><li>Design a bungee launch system for an electric ducted fan (EDF) drone targeting speeds above 200 mph.</li><li>Develop the launcher to achieve an 18 m/s launch velocity at an 8° launch angle while meeting portability requirements.</li></ul>
-          <div class="tag-row"><span class="tag">Launch Systems</span><span class="tag">Drone Design</span></div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-date"><strong>Apr 2026 - Present</strong>CU Boulder Robotics<br/>Boulder, CO</div>
-        <div>
-
-          <div class="exp-role">Surveillance Drone Engineer</div>
-          <div class="exp-org">CU Boulder Robotics</div>
-          <ul class="exp-body"><li>Designed a small quadcopter with a lidar array for mapping and relaying enemy robot positions in real time.</li><li>Designed the lidar footprint to provide more than 60% field coverage from most hover locations.</li></ul>
-          <div class="tag-row"><span class="tag">Drone Design</span><span class="tag">Lidar</span><span class="tag">Robotics</span></div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-date"><strong>Aug 2020 - Jun 2023</strong>VEX Robotics Competition<br/>Davie, FL</div>
-        <div>
-          <img class="exp-img" src="images/robot.png" alt="VEX Robotics Competition"/>
-          <div class="exp-role">Design Lead, Team 4154X</div>
-          <div class="exp-org">VEX Robotics Competition</div>
-          <ul class="exp-body"><li>Led mechanical design to address competition game challenges.</li><li>Finalist at VEX Worlds 2022 with team 4154X.</li></ul>
-          <div class="tag-row"><span class="tag">Mechanical Design</span><span class="tag">Competition Robotics</span><span class="tag">Team Leadership</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MOTORSPORT -->
-<section id="motorsport">
-  <div class="section-wrap">
-    <div class="section-label reveal">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Motorsport</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="motorsport-inner">
-      <div class="motorsport-text reveal">
-        <div class="motorsport-headline">Passion for racing, <em>behind the wheel.</em></div>
-        <p class="motorsport-body">Motorsport isn't just something I engineer around. It's something I compete in. After joining CU Boulder Racing Team's Endurance branch as a test driver, I made the move to full race driver and took the wheel at a Champcar Endurance Series event at G2 Motorsports Park.</p>
-        <p class="motorsport-body">The team ran a flawless weekend. We finished 5th in class and 6th overall, a result built on clean, consistent driving and a car that held together start to finish. It was my first endurance race, and it reinforced everything I believe about the relationship between engineering and performance on track.</p>
-        <p class="motorsport-body">I'm continuing to work with the team and looking forward to more time on grid. The goal is simple: go faster, finish races, and keep improving.</p>
-        <div class="motorsport-stat-row">
-          <div class="motorsport-stat">
-            <div class="motorsport-stat-val">5th</div>
-            <div class="motorsport-stat-label">In Class</div>
-          </div>
-          <div class="motorsport-stat">
-            <div class="motorsport-stat-val">6th</div>
-            <div class="motorsport-stat-label">Overall</div>
-          </div>
-          <div class="motorsport-stat">
-            <div class="motorsport-stat-val">G2</div>
-            <div class="motorsport-stat-label">Motorsports Park</div>
-          </div>
-        </div>
-        <div class="tag-row" style="margin-top:1.5rem;">
-          <span class="tag">Champcar Endurance</span><span class="tag">Race Driver</span><span class="tag">Endurance Racing</span><span class="tag">CU Boulder</span>
-        </div>
-      </div>
-      <div class="motorsport-photos reveal">
-        <img class="motorsport-photo-main" src="images/endurTeam.png" alt="CU Boulder Endurance Team"/>
-        <img class="motorsport-photo-secondary" src="images/helmet.png" alt="Racing helmet"/>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-wrap">
-    <div class="section-label reveal">
-      <span class="section-num">04</span>
-      <h2 class="section-title">Projects</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="projects-grid">
-
-      <div class="project-card reveal">
-        <img class="project-img" src="images/cfd.png" alt="CFD pressure field of undertray"/>
-        <div class="project-body">
-          <div class="project-cat">FSAE · Sep 2024 - Present</div>
-          <div class="project-title">Ground-Effect Undertray &amp; Diffuser</div>
-          <p class="project-desc">Designed the team’s first ground-effect-driven undertray for 30% increased downforce with a small drag penalty.</p>
-          <div class="project-details">
-            <div class="project-detail-row">Inlet/throat geometry constrained by suspension packaging and competition rules</div>
-            <div class="project-detail-row">Two inlet designs iterated via CFD to minimize underbody pressure and maximize diffuser mass air flow</div>
-            <div class="project-detail-row">Carbon composite elements manufactured with quality-controlled layups for weight and consistency</div>
-            <div class="project-detail-row">Suspension potentiometer testing is underway to verify CFD-predicted downforce and support future aero and chassis development</div>
-          </div>
-          <div class="tag-row">
-            <span class="tag">CFD</span><span class="tag">Aerodynamics</span><span class="tag">Composites</span><span class="tag">CAD</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <img class="project-img" src="images/carbon.png" alt="Carbon fiber coupons"/>
-        <div class="project-body">
-          <div class="project-cat">FSAE · 2024-2025</div>
-          <div class="project-title">Carbon Fiber Coupon Testing &amp; Material Characterization</div>
-          <p class="project-desc">Built a validated material dataset for the FSAE car's carbon fiber laminate to enable accurate structural FEA in future component design.</p>
-          <div class="project-details">
-            <div class="project-detail-row">Manufactured coupons with controlled epoxy content to assess laminate property variability</div>
-            <div class="project-detail-row">Performed tensile and compressive testing to extract strength and modulus values</div>
-            <div class="project-detail-row">Iterated coupon geometry and layup procedure to reduce scatter and improve repeatability</div>
-            <div class="project-detail-row">Dataset directly feeds structural FEA for future aero components</div>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Composites</span><span class="tag">Materials Testing</span><span class="tag">FEA</span><span class="tag">Manufacturing</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <img class="project-img" src="images/drone.png" alt="FPV racing drone prototype"/>
-        <div class="project-body">
-          <div class="project-cat">Personal Projects · Sep 2025 - Present</div>
-          <div class="project-title">FPV Racing &amp; Cinematic Drones</div>
-          <p class="project-desc">Built a racing micro-quadcopter focused on aerobatics with a target power-to-weight ratio of 3+, and designed a 5-inch drone for cinematic flight.</p>
-          <div class="project-details">
-            <div class="project-detail-row">Avionics selected through a constraint-driven trade study balancing weight, size, and performance</div>
-            <div class="project-detail-row">Cinematic drone uses a custom 3D-printed frame made with carbon fiber filament</div>
-            <div class="project-detail-row">Iterative flight and static testing used to refine frame and avionics packaging</div>
-          </div>
-          <div class="tag-row">
-            <span class="tag">FEA</span><span class="tag">3D Printing</span><span class="tag">Avionics</span><span class="tag">Flight Dynamics</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-body">
-          <div class="project-cat">Personal Project · Aug 2026 - Present</div>
-          <div class="project-title">Quadcopter Motor Test Stand</div>
-          <p class="project-desc">Designed a brushless DC motor test stand to support drone frame design and avionics selection.</p>
-          <div class="project-details">
-            <div class="project-detail-row">Uses a 5 kg S-type load cell for axial thrust measurements</div>
-            <div class="project-detail-row">Designed to inform drone frame optimization and avionics selection with motor test data</div>
-          </div>
-          <div class="tag-row"><span class="tag">Thrust Measurement</span><span class="tag">Drone Design</span><span class="tag">Test Equipment</span></div>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <img class="project-img" src="images/box.png" alt="LotSpot housing CAD"/>
-        <div class="project-body">
-          <div class="project-cat">Client Engineering · Jan 2026 - Present</div>
-          <div class="project-title">LotSpot Camera/Computer Housing</div>
-          <p class="project-desc">Redesigned the enclosure for a smart parking lot monitor into two separate housings — camera/computer and battery — hardened for outdoor weather exposure and mountable on standard sign posts.</p>
-          <div class="project-details">
-            <div class="project-detail-row">Dual mounting brackets designed to clamp to standard square sign posts with a load-bearing pin, enabling elevated camera placement for improved vehicle detection</div>
-            <div class="project-detail-row">Lid sealed with a double o-ring design to block moisture ingress; screws mate with heat-set inserts bonded into the lid for a repeatable, secure seal</div>
-            <div class="project-detail-row">Active cooling system uses a bottom-mounted intake fan and angled exhaust vents on either side; acoustic fabric over all openings adds a water-resistant barrier</div>
-            <div class="project-detail-row">All internal components fastened into designated mounts, replacing a loose free-stacking layout with a consistent, serviceable assembly</div>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Mechanical CAD</span><span class="tag">Enclosure Design</span><span class="tag">Weatherproofing</span><span class="tag">Client Delivery</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-wrap">
-    <div class="section-label reveal">
-      <span class="section-num">05</span>
-      <h2 class="section-title">Skills &amp; Tools</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="skills-layout">
-      <div class="reveal">
-        <div class="skill-group-title">Engineering &amp; Analysis</div>
-        <div class="skill-list">
-          <span class="skill-pill hl">Aerodynamic Design</span>
-          <span class="skill-pill hl">CFD</span>
-          <span class="skill-pill hl">Drone Design</span>
-          <span class="skill-pill">CAD</span>
-          <span class="skill-pill">MATLAB</span>
-          <span class="skill-pill">Flight Dynamics</span>
-          <span class="skill-pill">Systems Integration</span>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="skill-group-title">Manufacturing &amp; Testing</div>
-        <div class="skill-list">
-          <span class="skill-pill hl">Composites Manufacturing</span>
-          <span class="skill-pill hl">Carbon Fiber Layup</span>
-          <span class="skill-pill">Machining</span>
-          <span class="skill-pill">3D Printing</span>
-          <span class="skill-pill">Vehicle Testing</span>
-          <span class="skill-pill">Materials Testing</span>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="skill-group-title">Leadership &amp; Delivery</div>
-        <div class="skill-list">
-          <span class="skill-pill hl">Team Leadership</span>
-          <span class="skill-pill hl">Project Management</span>
-          <span class="skill-pill">Technical Communication</span>
-          <span class="skill-pill">Technical Documentation</span>
-          <span class="skill-pill">Design Reviews</span>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="skill-group-title">Education</div>
-        <div class="skill-list">
-          <span class="skill-pill">Aerospace Engineering</span>
-          <span class="skill-pill">CU Boulder</span>
-          <span class="skill-pill">Graduating May 2027</span>
-          <span class="skill-pill">CU Boulder Racing Team</span>
-          <span class="skill-pill">CU Boulder SuperSpeed</span>
-          <span class="skill-pill">CU Boulder Robotics</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-wrap">
-    <div class="section-label reveal">
-      <span class="section-num">06</span>
-      <h2 class="section-title">Contact</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="contact-inner">
-      <div class="reveal">
-        <div class="contact-headline">Let’s talk <em>engineering.</em></div>
-        <p class="contact-body">Get in touch to discuss my work in aerospace, motorsport, robotics, and hands-on engineering.</p>
-      </div>
-      <div class="contact-right reveal">
-        <a class="contact-link" href="mailto:murli01quebo@gmail.com">
-          <div class="contact-link-icon">@</div>
-          <div>
-            <div class="contact-link-label">Email</div>
-            <div class="contact-link-val">murli01quebo@gmail.com</div>
-          </div>
-        </a>
-        <a class="contact-link" href="tel:9105990023">
-          <div class="contact-link-icon">☎</div>
-          <div>
-            <div class="contact-link-label">Phone</div>
-            <div class="contact-link-val">910-599-0023</div>
-          </div>
-        </a>
-        <a class="contact-link" href="https://www.linkedin.com/in/LiamMur" target="_blank" rel="noopener">
-          <div class="contact-link-icon">in</div>
-          <div>
-            <div class="contact-link-label">LinkedIn</div>
-            <div class="contact-link-val">linkedin.com/in/LiamMur</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-copy">© 2026 Liam Murphy. All rights reserved.</div>
-  <div class="footer-right">Aerospace Engineering · CU Boulder · <span>May 2027</span></div>
+  <p class="footer-credit">© 2026 Liam Murphy</p>
 </footer>
-
-<script>
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 70);
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
-reveals.forEach(el => obs.observe(el));
-
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
-  navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : '';
-  });
-});
-</script>
-</body>
-</html>
+</main></div>
+<div class="detail-fallback"><section class="project-detail" id="detail-aerodynamics" aria-labelledby="title-aerodynamics"><div class="detail-top"><span class="eyebrow">Aerodynamics / Composites</span><a class="text-link detail-back" href="#aerodynamics">Back to work ↑</a></div><h2 id="title-aerodynamics">Formula SAE aerodynamics</h2><p class="detail-date">2024 — Present</p><div class="detail-hero"><img src="assets/photos/formula.webp" alt="CU Boulder Formula SAE car" loading="lazy" decoding="async" ></div><div class="detail-description"><p>Designed a ground-effect driven undertray for 30% increased downforce with a small drag penalty. Manufactured carbon composite aerodynamic elements and integrated them into the final vehicle assembly.</p><div class="detail-stat"><strong>30%</strong><span>CFD-predicted downforce increase due to undertray</span></div></div><h3>Validation in progress</h3><p>I’m conducting suspension potentiometer testing to verify the CFD-predicted downforce. The test setup will serve as a validation platform for future aerodynamic and chassis iterations.</p><div class="detail-gallery"><figure><img src="assets/photos/suspensionPotentiometer.webp" alt="Suspension potentiometer test setup" loading="lazy" decoding="async" ><figcaption>Suspension potentiometer test setup</figcaption></figure><figure><img src="assets/photos/wing.webp" alt="Carbon composite aerodynamic element" loading="lazy" decoding="async" ><figcaption>Carbon composite aerodynamic element</figcaption></figure><figure><img src="assets/photos/hero-rearwing.webp" alt="Liam holding a carbon fiber rear wing in the workshop" width="1350" height="1800" loading="lazy" decoding="async"><figcaption>Carbon fiber rear wing</figcaption></figure><figure><img src="assets/photos/formulaRainbow.webp" alt="CB6" loading="lazy" decoding="async" ><figcaption>CB6</figcaption></figure></div></section>
+<section class="project-detail" id="detail-fpv" aria-labelledby="title-fpv">
+  <div class="detail-top"><span class="eyebrow">Drone Design / Prototyping</span><a class="text-link detail-back" href="#fpv">Back to work ↑</a></div>
+  <h2 id="title-fpv">FPV racing &amp; cinematic drones</h2>
+  <p class="detail-date">2025 — Present</p>
+  <p>Avionics were selected through a trade study balancing weight, size, and performance. Flight and static test data guide improvements to the frames and avionics packaging.</p>
+  <section class="drone-section">
+    <h3>Racing drone</h3>
+    <div class="detail-hero"><img src="assets/photos/small-drone-frame.webp" alt="Built racing micro-quadcopter frame" loading="lazy" decoding="async"></div>
+    <div class="detail-description"><p>Built a racing micro-quadcopter focused on aerobatics, with iterative frame design and testing.</p><div class="detail-stat"><strong>3+</strong><span>Target power-to-weight ratio</span></div></div>
+    <div class="detail-gallery"><figure><img src="assets/photos/small-frame-iterations.webp" alt="Racing micro-quadcopter frame iterations" loading="lazy" decoding="async"><figcaption>Micro-quadcopter frame iterations</figcaption></figure><figure><img src="assets/photos/drone.webp" alt="Earlier FPV drone prototype assembly" loading="lazy" decoding="async"><figcaption>Earlier drone prototype</figcaption></figure></div>
+  </section>
+  <section class="drone-section">
+    <h3>Cinematic drone</h3>
+    <div class="detail-hero cinematic-cad"><img src="assets/photos/big-drone-frame.webp" alt="CAD model of the 5-inch cinematic drone" loading="lazy" decoding="async"></div>
+    <div class="detail-description"><p>Designed a cinematic drone with a custom 3D-printed frame using carbon fiber filament for cinematic flight shots.</p><div class="detail-stat"><strong>5-inch</strong><span>Cinematic drone</span></div></div>
+  </section>
+</section>
+<section class="project-detail" id="detail-launcher" aria-labelledby="title-launcher"><div class="detail-top"><span class="eyebrow">CU Boulder SuperSpeed / Launch Systems</span><a class="text-link detail-back" href="#launcher">Back to work ↑</a></div><h2 id="title-launcher">High-speed drone launcher</h2><p class="detail-date">2026 — Present</p><div class="detail-hero"><img src="assets/photos/launcher.webp" alt="CAD model of the portable drone launcher" loading="lazy" decoding="async" ></div><div class="detail-description"><p>As Launch System Engineer with CU Boulder SuperSpeed, I’m designing a portable bungee launch system for an electric ducted fan (EDF) drone targeting speeds above 200 mph.</p><div class="detail-stat"><strong>18 m/s</strong><span>Required launch velocity at an 8° launch angle</span></div></div><div class="detail-gallery"></div></section>
+<section class="project-detail technical" id="detail-test-stand" aria-labelledby="title-test-stand"><div class="detail-top"><span class="eyebrow">Test Equipment / Drone Development</span><a class="text-link detail-back" href="#test-stand">Back to work ↑</a></div><h2 id="title-test-stand">Quadcopter motor test stand</h2><p class="detail-date">2026 — Present</p><div class="detail-hero"><img src="assets/photos/testbench.webp" alt="CAD model of the motor test stand and S-type load cell" width="890" height="1160" loading="lazy" decoding="async"></div><div class="detail-description"><p>Designed a brushless DC motor test stand using a 5 kg S-type load cell for axial thrust measurements.</p><div class="detail-stat"><strong>5 kg</strong><span>S-type load cell</span></div></div><h3>Purpose</h3><p>The stand is designed to support drone frame optimization and avionics selection with motor test data.</p><div class="detail-gallery"></div></section>
+<section class="project-detail technical" id="detail-robotics" aria-labelledby="title-robotics"><div class="detail-top"><span class="eyebrow">CU Boulder Robotics / Lidar</span><a class="text-link detail-back" href="#robotics">Back to work ↑</a></div><h2 id="title-robotics">Lidar mapping quadcopter</h2><p class="detail-date">2026 — Present</p><div class="detail-hero"><img src="assets/photos/robotics-mapping.webp" alt="CAD model of the robotics quadcopter and its lidar coverage pattern" width="1600" height="839" loading="lazy" decoding="async"></div><div class="detail-description"><p>Designed a small quadcopter with a lidar array for mapping and relaying enemy robot positions in real time at CU Boulder Robotics.</p></div><h3>Coverage by design</h3><p>The lidar footprint is designed to provide more than 60% field coverage from most hover locations.</p><div class="detail-gallery"></div></section>
+<section class="project-detail" id="detail-vex" aria-labelledby="title-vex"><div class="detail-top"><span class="eyebrow">Mechanical Design / Team Leadership</span><a class="text-link detail-back" href="#vex">Back to work ↑</a></div><h2 id="title-vex">VEX competition robotics</h2><p class="detail-date">2020 — 2023</p><div class="detail-hero"><img src="assets/photos/robot.webp" alt="VEX robotics team at a competition" loading="lazy" decoding="async" ></div><div class="detail-description"><p>As Design Lead for Team 4154X, I led mechanical design to address competition game challenges from August 2020 through June 2023.</p></div><h3>Competition</h3><p>The team reached finalist status at VEX Worlds 2022.</p><div class="detail-gallery"></div></section></div>
+<dialog id="project-dialog" aria-label="Project details"><button class="dialog-close" type="button" aria-label="Close project details">Close <span aria-hidden="true">×</span></button><div id="dialog-content"></div></dialog>
+</body></html>

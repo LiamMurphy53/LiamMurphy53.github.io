@@ -1,44 +1,26 @@
 # Liam Murphy Portfolio
 
-Personal portfolio site for Liam Murphy, Aerospace Engineering student at the University of Colorado Boulder.
+Static portfolio for Liam Murphy, Aerospace Engineering at CU Boulder (May 2027).
 
-## Live Site
+## Design
 
-After publishing with GitHub Pages, this site will be available at:
+Combines Index’s cool gray background, clean typography, and slate accents with After Hours’ large introduction and two-column project gallery. Mobile uses a single-column layout. Desktop and mobile keep their separately sized portraits.
 
-- [https://liammurphy53.github.io/](https://liammurphy53.github.io/)
+Run a local static web server from this directory and open `index.html`. No build step or package installation is needed. Older theme URLs also show the combined design.
 
-## About
+## Content
 
-This portfolio highlights:
+- `index.html`: introduction, six selected projects, experience, motorsport, and contact. Full project details are stored in the `detail-fallback` section and opened in accessible dialogs. Direct detail links also work without JavaScript.
+- `assets/site.css`: the combined design and responsive layouts.
+- `assets/site.js`: project dialogs, including Escape to close and focus restoration.
+- `resume.pdf`: latest résumé (Resume-5).
+- `images/`: original project photos. These are preserved as supplied.
+- `assets/photos/`: resized WebP copies used by the site, including the motor test stand CAD and robotics mapping CAD. Selected sideways photos are corrected.
 
-- Aerospace engineering experience (FSAE, CU Boulder SuperSpeed, CU Boulder Robotics, VEX Robotics)
-- Project case summaries
-- Technical skills and contact information
+Project metrics distinguish design targets from results. The undertray's 30% downforce gain is presented as CFD-predicted, with physical validation in progress.
 
-## Tech Stack
+## Hosting
 
-- HTML
-- CSS
-- JavaScript
-- Barlow Condensed, Space Mono, and DM Sans fonts
+Compatible with GitHub Pages at https://liammurphy53.github.io/. Changes appear publicly only after publishing through the repository's GitHub Pages workflow.
 
-## Update Content
-
-Edit the main file:
-
-- `index.html`
-- Replace `resume.pdf` to update the downloadable résumé.
-
-## Deploy on GitHub Pages (Web UI)
-
-1. Create a public repo named `liammurphy53.github.io`
-2. Upload `index.html` (and this `README.md`) to the repo root on `main`
-3. Wait 1-3 minutes for GitHub Pages to publish
-4. Test the live URL on phone and desktop
-
-## Contact
-
-- Email: `murli01quebo@gmail.com`
-- LinkedIn: [linkedin.com/in/LiamMur](https://www.linkedin.com/in/LiamMur)
-
+Contact: murli01quebo@gmail.com
