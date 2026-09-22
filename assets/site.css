@@ -155,3 +155,6 @@ figcaption,
  [data-theme=night] .portrait{width:clamp(230px,22vw,280px);height:auto;aspect-ratio:211 / 243;margin-bottom:20px}
  [data-theme=night] .hero-side{max-width:580px;padding-top:0;padding-bottom:0;justify-self:start}
 }
+
+/* Clear section separators against the gray-blue background. */
+.intro-bottom,.experience-section,.experience-row,.motorsport-section,#contact,.drone-section{border-color:#000}
