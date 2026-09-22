@@ -1,3 +1,31 @@
+// Fresh visits start at the introduction, even with an old section anchor.
+const sectionAnchors = new Set(['#top', '#work', '#experience', '#motorsport', '#contact', '#about']);
+const startsAtTop = !location.hash || sectionAnchors.has(location.hash);
+if (startsAtTop) {
+  history.scrollRestoration = 'manual';
+  if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+  window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+  window.addEventListener('pageshow', () => {
+    window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+  }, {once: true});
+}
+
+// Navigate within the page without saving a section-specific entry URL.
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  if (!sectionAnchors.has(link.hash)) return;
+  link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const target = document.getElementById(link.hash.slice(1));
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    if (link.classList.contains('skip-link')) {
+      target.setAttribute('tabindex', '-1');
+      target.focus({preventScroll: true});
+    }
+  });
+});
+
 const dialog = document.getElementById('project-dialog');
 const content = document.getElementById('dialog-content');
 let opener;
