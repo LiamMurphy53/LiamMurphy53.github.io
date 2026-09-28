@@ -158,3 +158,107 @@ figcaption,
 
 /* Clear section separators against the gray-blue background. */
 .intro-bottom,.experience-section,.experience-row,.motorsport-section,#contact,.drone-section{border-color:#000}
+
+/* Full-width Cliffside introduction with a square portrait beside the name. */
+[data-theme=night] .intro{
+ width:100vw;margin-left:calc(50% - 50vw);padding:80px max(5vw,calc((100vw - 1160px)/2));
+ min-height:660px;display:flex;flex-direction:column;justify-content:center;
+ background:linear-gradient(#16212b66,#16212b66),url('photos/hero-cliffside.webp') center center / cover no-repeat;
+ color:#fff;
+}
+[data-theme=night] .hero-heading{display:block;width:100%;max-width:1160px;margin:0 auto 40px}
+[data-theme=night] .hero-identity{display:flex;align-items:center;gap:36px}
+[data-theme=night] .portrait{width:clamp(180px,22vw,280px);height:auto;aspect-ratio:1;object-fit:cover;border-radius:0;margin:0;flex:none}
+[data-theme=night] h1{font-size:clamp(72px,9vw,130px);color:#fff}
+[data-theme=night] h1 em{color:#fff}
+[data-theme=night] .hero-side{max-width:600px;margin:32px 0 0 calc(clamp(180px,22vw,280px) + 36px);padding:0}
+[data-theme=night] .hero-side p{color:#fff;font-size:17px;text-shadow:0 1px 4px #0006}
+[data-theme=night] .bio{max-width:48ch}
+[data-theme=night] .intro-bottom{width:100%;max-width:1160px;margin:0 auto;padding:0;border:0;color:#fff}
+@media(max-width:700px){
+ [data-theme=night] .intro{min-height:550px;padding:48px 6%;background-position:42% center}
+ [data-theme=night] .hero-identity{gap:20px}
+ [data-theme=night] .portrait{width:clamp(90px,25vw,150px);margin:0}
+ [data-theme=night] h1{font-size:clamp(46px,11vw,76px)}
+ [data-theme=night] .hero-side{margin:30px 0 0;max-width:480px}
+ [data-theme=night] .hero-side p{font-size:15px}
+}
+@media(min-width:701px){
+ [data-theme=night] .hero-side{width:calc(100% - clamp(180px,22vw,280px) - 36px)}
+}
+
+/* Larger introduction tagline and a uniform endurance photo grid. */
+[data-theme=night] .intro-bottom{font-size:clamp(18px,2.1vw,27px);line-height:1.4}
+.motorsport-section > .motorsport-copy{max-width:780px;margin-bottom:32px}
+.motorsport-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px}
+.motorsport-gallery > figure{margin:0;min-width:0}
+.motorsport-gallery img{width:100%;height:auto;aspect-ratio:4 / 3;object-fit:cover;object-position:center}
+.motorsport-gallery .motorsport-car img{object-position:center 85%}
+.motorsport-gallery .motorsport-helmet img{object-position:center 25%}
+.motorsport-gallery figcaption{margin-top:10px;line-height:1.5}
+@media(max-width:1000px){.motorsport-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.motorsport-gallery{grid-template-columns:1fr;gap:24px}}
+
+/* Persistent navigation and a right-aligned introduction. */
+.site-header{position:sticky;top:0;z-index:20;max-width:none;background:#fcfcfdf5;border-bottom:1px solid #d2d6db;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+html{scroll-padding-top:100px}
+[data-theme=night] .hero-heading{width:56%;max-width:680px;margin:0 0 32px auto}
+[data-theme=night] .hero-identity{gap:24px}
+[data-theme=night] .portrait{width:clamp(120px,13vw,180px)}
+[data-theme=night] h1{font-size:clamp(64px,6.5vw,94px)}
+[data-theme=night] .hero-side{width:100%;max-width:none;margin:28px 0 0}
+[data-theme=night] .intro-bottom{width:56%;max-width:680px;margin:0 0 0 auto;font-size:clamp(18px,1.7vw,24px)}
+@media(max-width:700px){
+ .site-header{padding:18px 6%}
+ html{scroll-padding-top:80px}
+ [data-theme=night] .intro{background-position:42% center;justify-content:flex-end;min-height:700px}
+ [data-theme=night] .hero-heading,[data-theme=night] .intro-bottom{width:100%;max-width:440px;margin-left:auto}
+ [data-theme=night] .hero-identity{gap:18px}
+ [data-theme=night] .portrait{width:clamp(85px,23vw,130px)}
+ [data-theme=night] h1{font-size:clamp(44px,10vw,70px)}
+}
+
+/* Image-integrated project links and the revised hero composition. */
+.project-image-tab{position:absolute;right:14px;bottom:14px;padding:9px 14px;background:#f4f5f7;color:#292c30;border:1px solid #292c3033;font-size:12px;font-weight:600;line-height:1.3;border-radius:2px;transition:background .2s}
+.project-image:hover .project-image-tab,.project-image:focus-visible .project-image-tab{background:#fff}
+@media(min-width:1001px){
+ [data-theme=night] .intro{padding-left:5vw;padding-right:5vw}
+ [data-theme=night] .hero-heading{width:48%;max-width:680px;margin-right:0}
+ [data-theme=night] .intro-bottom{width:100%;max-width:none;margin:24px 0 0;text-align:left}
+}
+@media(min-width:701px) and (max-width:1000px){
+ [data-theme=night] .intro-bottom{width:100%;max-width:none;margin-top:24px}
+}
+
+/* Stronger tagline and a little more space around the background subject. */
+[data-theme=night] .intro-bottom{font-size:clamp(24px,2.6vw,38px)}
+@media(min-width:1001px){
+ [data-theme=night] .intro{padding-right:2.5vw}
+ [data-theme=night] .hero-heading{width:46%;max-width:650px}
+}
+
+/* Fine-tune the desktop hero positions. */
+@media(min-width:1001px){
+ [data-theme=night] .intro{padding-right:1vw}
+ [data-theme=night] .hero-heading{width:44%;max-width:630px}
+ [data-theme=night] .intro-bottom{margin-top:44px;margin-left:-1.5vw}
+}
+
+/* Slimmer sticky navigation. */
+.site-header{padding-top:16px;padding-bottom:16px}
+html{scroll-padding-top:72px}
+@media(max-width:700px){
+ .site-header{padding-top:12px;padding-bottom:12px}
+ html{scroll-padding-top:64px}
+}
+
+/* Small desktop adjustments to the portrait and tagline. */
+@media(min-width:1001px){
+ [data-theme=night] .portrait{width:clamp(140px,14.5vw,200px)}
+ [data-theme=night] .intro-bottom{margin-left:-2.25vw;margin-top:60px}
+}
+
+/* Project progress labels, shared by cards and detail windows. */
+.project-status{display:inline-block;padding:4px 9px;border:1px solid #606c7a66;border-radius:3px;color:#394552;background:#ffffff40;font-size:11px;font-weight:600;line-height:1.4;letter-spacing:.01em}
+.project-copy > .project-status{margin:0 0 12px}
+.detail-date .project-status{margin-left:12px;vertical-align:middle}
