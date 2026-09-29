@@ -262,3 +262,6 @@ html{scroll-padding-top:72px}
 .project-status{display:inline-block;padding:4px 9px;border:1px solid #606c7a66;border-radius:3px;color:#394552;background:#ffffff40;font-size:11px;font-weight:600;line-height:1.4;letter-spacing:.01em}
 .project-copy > .project-status{margin:0 0 12px}
 .detail-date .project-status{margin-left:12px;vertical-align:middle}
+
+/* Add a little more color to the headshot. */
+[data-theme=night] .portrait{filter:saturate(1.25)}
