@@ -12,7 +12,7 @@ Note: this file is in a public Pages repo, so it is publicly readable. Keep priv
 
 ## Files
 
-- `index.html`: all content. Sections: intro (`#top`, bio `#about`), Projects (`#work`), Experience (`#experience`), Motorsport (`#motorsport`), Contact (`#contact`).
+- `index.html`: all content. Sections: intro (`#top`, bio `#about`), Projects (`#work`), Motorsport (`#motorsport`), Contact (`#contact`).
   - Six project cards: `#aerodynamics`, `#fpv`, `#launcher`, `#test-stand`, `#robotics` (surveillance quadcopter), `#vex`.
   - Full project details live in `.detail-fallback` as `#detail-<id>` sections and are cloned into `<dialog id="project-dialog">`.
 - `assets/site.css`: all styling. It has layered refinements, so later rules override earlier ones. Read the whole cascade before changing a value.
