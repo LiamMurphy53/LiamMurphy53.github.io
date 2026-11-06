@@ -265,3 +265,9 @@ html{scroll-padding-top:72px}
 
 /* Add a little more color to the headshot. */
 [data-theme=night] .portrait{filter:saturate(1.25)}
+
+/* launcher design evolution heading */
+.project-detail .detail-subhead{margin:44px 0 0;padding-top:28px;border-top:1px solid var(--line)}
+.detail-copy p+p{margin-top:14px}
+.project-detail p + h3,.project-detail .detail-gallery + h3,.project-detail .detail-description + h3{margin-top:30px}
+.project-detail p .text-link{font-size:inherit;text-decoration:underline;text-underline-offset:3px}

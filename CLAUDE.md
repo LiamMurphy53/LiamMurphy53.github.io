@@ -13,7 +13,7 @@ Note: this file is in a public Pages repo, so it is publicly readable. Keep priv
 ## Files
 
 - `index.html`: all content. Sections: intro (`#top`, bio `#about`), Projects (`#work`), Experience (`#experience`), Motorsport (`#motorsport`), Contact (`#contact`).
-  - Six project cards: `#aerodynamics`, `#fpv`, `#launcher`, `#test-stand`, `#robotics`, `#vex`.
+  - Six project cards: `#aerodynamics`, `#fpv`, `#launcher`, `#test-stand`, `#robotics` (surveillance quadcopter), `#vex`.
   - Full project details live in `.detail-fallback` as `#detail-<id>` sections and are cloned into `<dialog id="project-dialog">`.
 - `assets/site.css`: all styling. It has layered refinements, so later rules override earlier ones. Read the whole cascade before changing a value.
 - `assets/site.js`: section navigation, initial scroll to intro, dialog open/close/cloning, focus restoration, section observer.
@@ -41,9 +41,9 @@ Never present a design target as a demonstrated result. Current wording to prese
 - FPV drones: 3+ power-to-weight is a *target*.
 - Launcher: *requirement* of 18 m/s at an 8° *launch angle* (not angle of attack). The aircraft *targets* >200 mph, which is not demonstrated.
 - Motor test stand: in development. 5 kg S-type load cell.
-- Lidar quadcopter: >60% field coverage is a *design* objective.
+- Surveillance quadcopter (was lidar): now camera-based. The >60% field coverage figure was a *design* objective of the earlier lidar concept.
 - VEX 4154X: completed. Worlds 2022 finalist.
-Project status labels: FSAE Completed, FPV Testing / In development, Launcher / Test stand / Lidar In development, VEX Completed.
+Project status labels: FSAE Completed, FPV Testing / In development, Launcher / Test stand / Surveillance quadcopter In development, VEX Completed.
 
 ## Working style
 
