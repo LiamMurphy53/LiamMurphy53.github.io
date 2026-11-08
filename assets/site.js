@@ -53,6 +53,7 @@ if (typeof dialog.showModal === 'function') {
     if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
   });
   dialog.addEventListener('close', () => {
+    content.querySelectorAll('video').forEach(v => v.pause());
     document.body.classList.remove('modal-open');
     opener?.focus({preventScroll: true});
   });
