@@ -19,7 +19,7 @@ Note: this file is in a public Pages repo, so it is publicly readable. Keep priv
 - `assets/site.js`: section navigation, initial scroll to intro, dialog open/close/cloning, focus restoration, section observer.
 - `assets/photos/`: optimized WebP images the site uses.
 - `images/`: original photos (~230 MB). Keep them as supplied. Make resized WebP copies in `assets/photos/` instead of linking originals.
-- `resume.pdf`: current resume (Resume-5).
+- `resume.pdf`: current resume (copy of the Nov 8, 2026 resume).
 - `README.md` describes an earlier design stage. The current HTML/CSS are authoritative.
 
 ## Must keep working
@@ -37,10 +37,10 @@ Simple, personal, "less vibecoded": cool grays with slate accents, strong intro 
 ## Accuracy of claims (important)
 
 Never present a design target as a demonstrated result. Current wording to preserve:
-- FSAE undertray: 30% *CFD-predicted* downforce gain. Physical validation (suspension potentiometers) is *in progress*.
+- FSAE undertray: Liam designed the *inlet*. 25% *CFD-predicted* downforce gain and 1% drag decrease vs. no undertray. He led suspension potentiometer testing to validate CFD; don't claim CFD was confirmed.
 - FPV drones: 3+ power-to-weight is a *target*.
 - Launcher: *requirement* of 18 m/s at an 8° *launch angle* (not angle of attack). The aircraft *targets* >200 mph, which is not demonstrated.
-- Motor test stand: in development. 5 kg S-type load cell.
+- Motor test stand: in development. 5 kg S-type load cell. Measured 1.4 kgf peak thrust for the 5" deadcat motor/prop.
 - Surveillance quadcopter (was lidar): now camera-based. The >60% field coverage figure was a *design* objective of the earlier lidar concept.
 - VEX 4154X: completed. Worlds 2022 finalist.
 Project status labels: FSAE Completed, FPV Testing / In development, Launcher / Test stand / Surveillance quadcopter In development, VEX Completed.
